@@ -1,8 +1,7 @@
 #!/bin/bash
 
 echo "-= Removing any existing configs =-"
-rm -rf ~/.zshrc ~/.vim ~/.vimrc ~/.config/nvim/ ~/.tmux ~/.tmux.conf 2 >
-/dev/null
+rm -rf ~/.zshrc ~/.vim ~/.vimrc ~/.config/nvim/ ~/.tmux ~/.tmux.conf 2 > /dev/null
 
 #create neovim directory
 echo "-= Creating necessary directories =-"
