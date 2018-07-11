@@ -15,6 +15,7 @@ Plug 'mhartington/oceanic-next'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " ============================================================================ "
@@ -24,7 +25,8 @@ call plug#end()
 set hidden
 
 set path+=**
-" set wildignore=**/node_modules/**
+setlocal suffixesadd+=.js,.jsx
+set wildignore=**/node_modules/**
 " Line Numbers
 set nu
 " Relative numbers
@@ -159,11 +161,6 @@ imap <C-j> <DOWN>
 imap <C-k> <UP>
 imap <C-l> <RIGHT>
 
-command WQ !wq
-command Wq !wq
-command W !w
-command Q !q
-
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
@@ -178,3 +175,20 @@ iabbrev lim Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer di
 iabbrev lix Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer diam augue, egestas quis, aliquam ut, venenatis ut, quam. Quisque ut augue. Integer non neque a lectus venenatis fermentum. Morbi quis eros nec elit molestie vehicula. Integer nunc lacus, sodales posuere, rutrum quis, blandit at, mi. 
 
 iabbrev erc import React from 'react' <CR><CR>export default class <esc>i extends React.Component {<CR>  render() {<CR>  return (<CR>)<CR>}<CR>}<esc>5k^eeea
+
+function! LoadMainNodeModule(fname)
+    let nodeModules = "./node_modules/"
+    let packageJsonPath = nodeModules . a:fname . "/package.json"
+
+    if filereadable(packageJsonPath)
+        return nodeModules . a:fname . "/" . json_decode(join(readfile(packageJsonPath))).main
+    else
+        return nodeModules . a:fname
+    endif
+endfunction
+
+set includeexpr=LoadMainNodeModule(v:fname)
+
+cnoreabbrev f find
+cnoreabbrev W w
+cnoreabbrev Q q
