@@ -35,9 +35,6 @@ set relativenumber
 " Yank and paste with the system clipboard
 set clipboard=unnamed
 
-" Hides buffers instead of closing them
-set hidden
-
 " Insert spaces when TAB is pressed.
 set expandtab
 
@@ -117,6 +114,9 @@ set ignorecase
 " if the search string has an upper case letter in it, the search will be case sensitive
 set smartcase
 
+" highlight as you type
+set inccommand=nosplit
+
 " Automatically re-read file if a change was detected outside of vim
 set autoread
 
@@ -139,7 +139,7 @@ nnoremap <leader>{ bi{<esc>ea}<esc>l
 nnoremap <leader>ds BxEx
 
 " Console log from insert mode; console.log()  Puts focus inside parentheses
-imap cll console.log()<Esc>==f(a
+imap cll console.log({})<Esc>==f{a
 " Console log from visual mode on next line, puts visual selection inside parentheses
 vmap cll yocll<Esc>p
 " Console log from normal mode, inserted on next line with word your on inside parentheses
@@ -151,6 +151,9 @@ imap break debuggerjk
 vmap break breakjk
 "Debugger from normal mode
 nmap break obreakjk
+
+" If statement check
+nmap !if yiwoif (!)<Esc>F!pA return null
 
 tnoremap <Leader>sh <C-\><C-n>:vsplit <CR>:term<CR>i
 noremap <Leader>sh :vsplit <CR>:term<CR>i
@@ -191,4 +194,5 @@ set includeexpr=LoadMainNodeModule(v:fname)
 
 cnoreabbrev f find
 cnoreabbrev W w
+cnoreabbrev Wa wa
 cnoreabbrev Q q
