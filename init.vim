@@ -139,7 +139,7 @@ nnoremap <leader>{ bi{<esc>ea}<esc>l
 nnoremap <leader>ds BxEx
 
 " Console log from insert mode; console.log()  Puts focus inside parentheses
-imap cll console.log({})<Esc>==f{a
+imap cll console.log({ })<Esc>==f{a 
 " Console log from visual mode on next line, puts visual selection inside parentheses
 vmap cll yocll<Esc>p
 " Console log from normal mode, inserted on next line with word your on inside parentheses
@@ -158,11 +158,10 @@ nmap !if yiwoif (!)<Esc>F!pA return null
 tnoremap <Leader>sh <C-\><C-n>:vsplit <CR>:term<CR>i
 noremap <Leader>sh :vsplit <CR>:term<CR>i
 inoremap <Leader>sh <Esc>:vsplit <CR>:term<CR>i
-"Remap hjkl to use them in INSERT MODE
-imap <C-h> <LEFT>
-imap <C-j> <DOWN>
-imap <C-k> <UP>
-imap <C-l> <RIGHT>
+
+" Cycle through buffers
+nnoremap <C-n> :execute ":buffer ".(bufnr("%") + 1)<CR>
+nnoremap <C-p> :execute ":buffer ".(bufnr("%") - 1)<CR>
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -177,7 +176,15 @@ iabbrev lim Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer di
 
 iabbrev lix Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer diam augue, egestas quis, aliquam ut, venenatis ut, quam. Quisque ut augue. Integer non neque a lectus venenatis fermentum. Morbi quis eros nec elit molestie vehicula. Integer nunc lacus, sodales posuere, rutrum quis, blandit at, mi. 
 
+" React
+iabbrev ire import React from 'react'
+
 iabbrev erc import React from 'react' <CR><CR>export default class <esc>i extends React.Component {<CR>  render() {<CR>  return (<CR>)<CR>}<CR>}<esc>5k^eeea
+
+" Mobx-react
+iabbrev injob import { inject, observer } from 'mobx-react'
+
+iabbrev io @inject('')<CR>@observer<esc>1k^f'a
 
 function! LoadMainNodeModule(fname)
     let nodeModules = "./node_modules/"
