@@ -99,7 +99,8 @@ colorscheme gruvbox
 " Vim airline theme
 let g:airline_theme='gruvbox'
 let g:airline_solarized_bg='dark'
-
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 " Change vertical split character to not leave small spaces between lines
 " (warning) - This could vary based on font used
 set fillchars+=vert:│
@@ -138,6 +139,9 @@ nnoremap <leader>{ bi{<esc>ea}<esc>l
 "delete " surround word under cursor
 nnoremap <leader>ds BxEx
 
+" jk to esc
+inoremap jk <esc>
+
 " Console log from insert mode; console.log()  Puts focus inside parentheses
 imap cll console.log({ })<Esc>==f{a 
 " Console log from visual mode on next line, puts visual selection inside parentheses
@@ -163,6 +167,8 @@ inoremap <Leader>sh <Esc>:vsplit <CR>:term<CR>i
 nnoremap <C-n> :execute ":buffer ".(bufnr("%") + 1)<CR>
 nnoremap <C-p> :execute ":buffer ".(bufnr("%") - 1)<CR>
 
+nnoremap <leader>t :tabnew %<CR>
+
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
@@ -180,6 +186,10 @@ iabbrev lix Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer di
 iabbrev ire import React from 'react'
 
 iabbrev erc import React from 'react' <CR><CR>export default class <esc>i extends React.Component {<CR>  render() {<CR>  return (<CR>)<CR>}<CR>}<esc>5k^eeea
+
+" flex
+iabbrev flow flex flex-row
+iabbrev floc flex flex-column
 
 " Mobx-react
 iabbrev injob import { inject, observer } from 'mobx-react'
@@ -203,3 +213,5 @@ cnoreabbrev f find
 cnoreabbrev W w
 cnoreabbrev Wa wa
 cnoreabbrev Q q
+
+command! Trim :%s/\s\+$//g
