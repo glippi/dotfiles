@@ -16,6 +16,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'fenetikm/falcon'
 call plug#end()
 
 " ============================================================================ "
@@ -38,6 +39,9 @@ set clipboard=unnamed
 " Insert spaces when TAB is pressed.
 set expandtab
 
+" Insert 2 spaces even if isn't related to shift code
+set smarttab
+
 " Change number of spaces that a <Tab> counts for during editing ops
 set softtabstop=2
 
@@ -45,7 +49,7 @@ set softtabstop=2
 set shiftwidth=2
 
 " do not wrap long lines by default
-set wrap
+set nowrap
 set linebreak
 " Highlight current line
 set nocursorline
@@ -93,11 +97,16 @@ let g:jsx_ext_required = 0
 set termguicolors
 
 " Editor theme
+let g:falcon_background = 0
+let g:falcon_inactive = 1
 set background=dark
-colorscheme gruvbox
+" colorscheme gruvbox
+colorscheme falcon
 
 " Vim airline theme
-let g:airline_theme='gruvbox'
+let g:falcon_airline = 1
+let g:airline_theme = 'falcon'
+" let g:airline_theme='gruvbox'
 let g:airline_solarized_bg='dark'
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -120,6 +129,9 @@ set inccommand=nosplit
 
 " Automatically re-read file if a change was detected outside of vim
 set autoread
+
+" Add the g flag to search/replace by default
+set gdefault
 
 "Open .vimrc in split window
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -214,4 +226,12 @@ cnoreabbrev W w
 cnoreabbrev Wa wa
 cnoreabbrev Q q
 
-command! Trim :%s/\s\+$//g
+" Strip trailing whitespace (,ss)
+function! StripWhitespace()
+	let save_cursor = getpos(".")
+	let old_query = getreg('/')
+	:%s/\s\+$//e
+	call setpos('.', save_cursor)
+	call setreg('/', old_query)
+endfunction
+noremap <leader>ss :call StripWhitespace()
