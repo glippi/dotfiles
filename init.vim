@@ -1,24 +1,40 @@
 call plug#begin('~/.config/nvim/plugged')
-Plug 'raimondi/delimitmate'
+"Colorscheme
+Plug 'fenetikm/falcon'
 Plug 'morhetz/gruvbox'
-" Asynchronous linting
-Plug 'w0rp/ale'
-" ReactJS JSX syntax highlighting
-Plug 'chemzqm/vim-jsx-improve'
-" Plug 'mxw/vim-jsx'
-" Reason ML syntax
-Plug 'reasonml-editor/vim-reason-plus'
-" Improved syntax highlighting and indentation
-Plug 'othree/yajs.vim'
 Plug 'mhartington/oceanic-next'
-" Customized vim status line
+"Close brackets
+Plug 'raimondi/delimitmate'
+"Asynchronous linting
+Plug 'w0rp/ale'
+"ReactJS JSX syntax highlighting
+Plug 'chemzqm/vim-jsx-improve'
+"Reason ML syntax
+Plug 'reasonml-editor/vim-reason-plus'
+"Improved syntax highlighting and indentation
+Plug 'othree/yajs.vim'
+"Customized vim status line
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'mileszs/ack.vim'
+"Git in vim
 Plug 'tpope/vim-fugitive'
-Plug 'fenetikm/falcon'
-Plug 'gko/vim-coloresque'
 Plug 'jreybert/vimagit'
+"Display css color in css files
+Plug 'gko/vim-coloresque'
+" Surround motion
+Plug 'tpope/vim-surround'
+"FuzzyFinder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+"AG SilverSurfer
+Plug 'rking/ag.vim'
+"MarkDown live preview
+function! BuildComposer(info)
+  if a:info.status != 'unchanged' || a:info.force
+      !cargo build --release
+  endif
+endfunction
+Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 call plug#end()
 
 " ============================================================================ "
