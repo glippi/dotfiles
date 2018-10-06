@@ -17,6 +17,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'fenetikm/falcon'
+Plug 'gko/vim-coloresque'
 call plug#end()
 
 " ============================================================================ "
