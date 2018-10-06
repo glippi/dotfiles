@@ -118,6 +118,8 @@ set fillchars+=vert:│
 
 " Set preview window to appear at bottom
 set splitbelow
+" Vertical split to right of current.
+set splitright
 
 " === Search === "
 " ignore case when searching
