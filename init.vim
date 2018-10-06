@@ -18,6 +18,7 @@ Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'fenetikm/falcon'
 Plug 'gko/vim-coloresque'
+Plug 'jreybert/vimagit'
 call plug#end()
 
 " ============================================================================ "
