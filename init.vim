@@ -37,6 +37,8 @@ endfunction
 Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 call plug#end()
 
+filetype plugin indent on
+
 " ============================================================================ "
 " ===                           EDITING OPTIONS                            === "
 " ============================================================================ "
@@ -228,6 +230,64 @@ iabbrev injob import { inject, observer } from 'mobx-react'
 
 iabbrev io @inject('')<CR>@observer<esc>1k^f'a
 
+
+set includeexpr=LoadMainNodeModule(v:fname)
+
+cnoreabbrev f find
+cnoreabbrev W w
+cnoreabbrev Wa wa
+cnoreabbrev Q q
+
+noremap <leader>ss :call StripWhitespace()
+" Search mappings: These will make it so that going to the next one in a
+" search will center on the line it's found in.
+nnoremap n nzzzv
+nnoremap N Nzzzv
+"" txt
+augroup vimrc-wrapping
+  autocmd!
+  autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
+augroup END
+"Let ALE run prettier with local config on save
+let g:ale_fixers = {'javascript': ['eslint']}
+highlight ALEWarning ctermbg=DarkMagenta
+highlight ALEError ctermbg=Red
+"let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_fix_on_save = 1
+"" Git
+noremap <Leader>ga :Gwrite<CR>
+noremap <Leader>gc :Gcommit<CR>
+noremap <Leader>gsh :Gpush<CR>
+noremap <Leader>gll :Gpull<CR>
+noremap <Leader>gs :Gstatus<CR>
+noremap <Leader>gb :Gblame<CR>
+noremap <Leader>gd :Gvdiff<CR>
+noremap <Leader>gr :Gremove<CR>
+"" Abbreviations
+"*****************************************************************************
+"" no one is really happy until you have this shortcuts
+cnoreabbrev W! w!
+cnoreabbrev Q! q!
+cnoreabbrev Qall! qall!
+cnoreabbrev Wq wq
+cnoreabbrev Wa wa
+cnoreabbrev wQ wq
+cnoreabbrev WQ wq
+cnoreabbrev W w
+cnoreabbrev Q q
+cnoreabbrev Qall qall
+"*****************************************************************************
+"" Functions
+"*****************************************************************************
+
+if !exists('*s:setupWrapping')
+  function s:setupWrapping()
+    set wrap
+    set wm=2
+    set textwidth=79
+  endfunction
+endif
+
 function! LoadMainNodeModule(fname)
     let nodeModules = "./node_modules/"
     let packageJsonPath = nodeModules . a:fname . "/package.json"
@@ -239,13 +299,6 @@ function! LoadMainNodeModule(fname)
     endif
 endfunction
 
-set includeexpr=LoadMainNodeModule(v:fname)
-
-cnoreabbrev f find
-cnoreabbrev W w
-cnoreabbrev Wa wa
-cnoreabbrev Q q
-
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
 	let save_cursor = getpos(".")
@@ -254,16 +307,24 @@ function! StripWhitespace()
 	call setpos('.', save_cursor)
 	call setreg('/', old_query)
 endfunction
-noremap <leader>ss :call StripWhitespace()
+
+"searches the word under the cursor through the project tree using fzf and Ag
+noremap <Leader>d :exe ':Ag ' . expand('<cword>')<CR>
+"opens up the fzf Ag search
+noremap <C-f> :Ag
+" Find file on buffer (open file)
+nnoremap <silent> <leader>b :Buffers<CR>
+" Find and open files
+nnoremap <silent> <leader>e :FZF -m<CR>
+
+
+"" fzf.vim
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
+let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
+
 " The Silver Searcher
 if executable('ag')
-    " Use ag over grep
-    set grepprg=ag\ --nogroup\ --nocolor
-
-    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-    " ag is fast enough that CtrlP doesn't need to cache
-    let g:ctrlp_use_caching = 0
+  let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+  set grepprg=ag\ --nogroup\ --nocolor
 endif
-let g:ackprg = 'ag --vimgrep'
