@@ -13,7 +13,6 @@ Plug 'chemzqm/vim-jsx-improve'
 Plug 'reasonml-editor/vim-reason-plus'
 "Improved syntax highlighting and indentation
 Plug 'othree/yajs.vim'
-Plug 'HerringtonDarkholme/yats.vim'
 "Customized vim status line
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -38,7 +37,8 @@ endfunction
 Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 Plug 'GabrieleLippi/ydkjs-vim'
 " Language server for TS
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', {'for': ['typescript', 'tsx'], 'do': './install.sh' }
 call plug#end()
 
 filetype plugin indent on
