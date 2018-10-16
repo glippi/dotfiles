@@ -38,7 +38,7 @@ Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 Plug 'GabrieleLippi/ydkjs-vim'
 " Language server for TS
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'mhartington/nvim-typescript', {'for': ['typescript', 'tsx'], 'do': './install.sh' }
+Plug 'mhartington/nvim-typescript', {'do': './install.sh' }
 call plug#end()
 
 filetype plugin indent on
