@@ -35,6 +35,7 @@ function! BuildComposer(info)
   endif
 endfunction
 Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+Plug 'GabrieleLippi/ydkjs-vim'
 call plug#end()
 
 filetype plugin indent on
@@ -126,8 +127,6 @@ colorscheme falcon
 " Vim airline theme
 let g:falcon_airline = 1
 let g:airline_theme = 'falcon'
-" let g:airline_theme='gruvbox'
-let g:airline_solarized_bg='dark'
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 " Change vertical split character to not leave small spaces between lines
