@@ -39,6 +39,9 @@ Plug 'GabrieleLippi/ydkjs-vim'
 " Language server for TS
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh' }
+" For async completion
+Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/denite.nvim'
 call plug#end()
 
 filetype plugin indent on
@@ -121,15 +124,15 @@ let g:jsx_ext_required = 0
 set termguicolors
 
 " Editor theme
-let g:falcon_background = 0
-let g:falcon_inactive = 1
+"let g:falcon_background = 0
+"let g:falcon_inactive = 1
+"colorscheme falcon
 set background=dark
-" colorscheme gruvbox
-colorscheme falcon
+colorscheme gruvbox
 
 " Vim airline theme
-let g:falcon_airline = 1
-let g:airline_theme = 'falcon'
+"let g:falcon_airline = 1
+let g:airline_theme = 'gruvbox'
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 " Change vertical split character to not leave small spaces between lines
@@ -200,10 +203,12 @@ noremap <Leader>sh :vsplit <CR>:term<CR>i
 inoremap <Leader>sh <Esc>:vsplit <CR>:term<CR>i
 
 " Cycle through buffers
-nnoremap <C-n> :execute ":buffer ".(bufnr("%") + 1)<CR>
+
+let g:nvim_typescript#max_completion_detail=100
 nnoremap <C-p> :execute ":buffer ".(bufnr("%") - 1)<CR>
 
-nnoremap <leader>t :tabnew %<CR>
+" create a new tab and open a terminal window in insert mode
+nnoremap <leader>te :tabnew<esc>:terminal<CR>i
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -235,11 +240,6 @@ iabbrev io @inject('')<CR>@observer<esc>1k^f'a
 
 set includeexpr=LoadMainNodeModule(v:fname)
 
-cnoreabbrev f find
-cnoreabbrev W w
-cnoreabbrev Wa wa
-cnoreabbrev Q q
-
 noremap <leader>ss :call StripWhitespace()
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
@@ -259,8 +259,8 @@ let g:ale_fix_on_save = 1
 "" Git
 noremap <Leader>ga :Gwrite<CR>
 noremap <Leader>gc :Gcommit<CR>
-noremap <Leader>gsh :Gpush<CR>
-noremap <Leader>gll :Gpull<CR>
+noremap <Leader>gps :Git ps<CR>
+noremap <Leader>gpl :Git pl<CR>
 noremap <Leader>gs :Gstatus<CR>
 noremap <Leader>gb :Gblame<CR>
 noremap <Leader>gd :Gvdiff<CR>
@@ -268,6 +268,7 @@ noremap <Leader>gr :Gremove<CR>
 "" Abbreviations
 "*****************************************************************************
 "" no one is really happy until you have this shortcuts
+cnoreabbrev f find
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
 cnoreabbrev Qall! qall!
@@ -330,3 +331,9 @@ if executable('ag')
   let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
   set grepprg=ag\ --nogroup\ --nocolor
 endif
+
+" Enable deoplete at startup
+let g:deoplete#enable_at_startup = 1
+let g:echodoc_enable_at_startup = 1
+let g:nvim_typescript#max_completion_detail=100
+tnoremap <Esc> <C-\><C-n>
