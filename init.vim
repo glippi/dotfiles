@@ -28,13 +28,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 "AG SilverSurfer
 Plug 'rking/ag.vim'
-"MarkDown live preview
-function! BuildComposer(info)
-  if a:info.status != 'unchanged' || a:info.force
-      !cargo build --release
-  endif
-endfunction
-Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 Plug 'GabrieleLippi/ydkjs-vim'
 " Language server for TS
 Plug 'HerringtonDarkholme/yats.vim'
@@ -42,6 +35,7 @@ Plug 'mhartington/nvim-typescript', {'do': './install.sh' }
 " For async completion
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/denite.nvim'
+Plug 'machakann/vim-highlightedyank'
 call plug#end()
 
 filetype plugin indent on
