@@ -29,6 +29,7 @@ Plug 'junegunn/fzf.vim'
 "AG SilverSurfer
 Plug 'rking/ag.vim'
 Plug 'GabrieleLippi/ydkjs-vim'
+Plug 'GabrieleLippi/jsx-tags-vim'
 " Language server for TS
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh' }
@@ -334,3 +335,5 @@ let g:deoplete#enable_at_startup = 1
 let g:echodoc_enable_at_startup = 1
 let g:nvim_typescript#max_completion_detail=100
 tnoremap <Esc> <C-\><C-n>
+nnoremap <leader>v :vs<CR>
+nnoremap <leader>h :sp<CR>
