@@ -204,6 +204,9 @@ nnoremap <C-p> :execute ":buffer ".(bufnr("%") - 1)<CR>
 " create a new tab and open a terminal window in insert mode
 nnoremap <leader>te :tabnew<esc>:terminal<CR>i
 
+" create a new tab and open a terminal and start yarn
+nnoremap <leader>ys :tabnew<esc>:terminal<CR>yarn start<CR>
+
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
