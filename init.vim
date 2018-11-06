@@ -37,6 +37,7 @@ Plug 'mhartington/nvim-typescript', {'do': './install.sh' }
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/denite.nvim'
 Plug 'machakann/vim-highlightedyank'
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 call plug#end()
 
 filetype plugin indent on
@@ -330,10 +331,210 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 endif
 
-" Enable deoplete at startup
-let g:deoplete#enable_at_startup = 1
-let g:echodoc_enable_at_startup = 1
-let g:nvim_typescript#max_completion_detail=100
 tnoremap <Esc> <C-\><C-n>
 nnoremap <leader>v :vs<CR>
 nnoremap <leader>h :sp<CR>
+
+" Deoplete ------------------------------------------------------------------{{{
+
+" enable deoplete
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#auto_complete_delay = 0
+  let g:echodoc_enable_at_startup=1
+let g:nvim_typescript#max_completion_detail=100
+let g:echodoc_enable_at_startup = 1
+  set splitbelow
+  set completeopt+=menuone,noinsert,noselect
+  set completeopt-=preview
+  " autocmd CompleteDone * pclose
+
+  function! Multiple_cursors_before()
+    let b:deoplete_disable_auto_complete=2
+  endfunction
+  function! Multiple_cursors_after()
+    let b:deoplete_disable_auto_complete=0
+  endfunction
+  let g:deoplete#file#enable_buffer_path=1
+  call deoplete#custom#source('buffer', 'mark', 'ℬ')
+  call deoplete#custom#source('tern', 'mark', '')
+  call deoplete#custom#source('omni', 'mark', '⌾')
+  call deoplete#custom#source('file', 'mark', '')
+  call deoplete#custom#source('jedi', 'mark', '')
+  call deoplete#custom#source('neosnippet', 'mark', '')
+  call deoplete#custom#source('LanguageClient', 'mark', '')
+  call deoplete#custom#source('typescript',  'rank', 630)
+  call deoplete#custom#source('_', 'matchers', ['matcher_cpsm'])
+  " call deoplete#custom#source('_', 'sorters', [])
+  let g:deoplete#omni_patterns = {
+        \ 'html': '',
+        \ 'css': '',
+        \ 'scss': ''
+        \}
+  function! Preview_func()
+    if &pvw
+      setlocal nonumber norelativenumber
+     endif
+  endfunction
+  autocmd WinEnter * call Preview_func()
+  let g:deoplete#ignore_sources = {'_': ['around', 'buffer' ]}
+
+  " let g:deoplete#enable_debug = 1
+  " call deoplete#enable_logging('DEBUG', 'deoplete.log')
+  " call deoplete#custom#source('typescript', 'is_debug_enabled', 1)
+"}}}
+"
+" Denite --------------------------------------------------------------------{{{
+
+  let s:menus = {}
+  call denite#custom#option('_', {
+        \ 'prompt': '❯',
+        \ 'winheight': 10,
+        \ 'updatetime': 1,
+        \ 'auto_resize': 0,
+        \ 'highlight_matched_char': 'Underlined',
+        \ 'highlight_mode_normal': 'CursorLine',
+        \ 'reversed': 1,
+        \})
+  call denite#custom#option('TSDocumentSymbol', {
+        \ 'prompt': ' @' ,
+        \})
+  call denite#custom#option('TSWorkspaceSymbol', {
+        \ 'prompt': ' #' ,
+        \})
+
+	call denite#custom#source('file_rec', 'vars', {
+        \'command': ['rg', '--files', '--glob', '!.git'],
+        \'sorters':['sorter_sublime'],
+        \'matchers': ['matches_cpsm']
+        \})
+  "     \ 'command': ['ag', '--follow','--nogroup','--hidden', '--column', '-g', '', '--ignore', '.git', '--ignore', '*.png', '--ignore', 'node_modules'
+
+	call denite#custom#source('grep', 'vars', {
+        \'command': ['rg'],
+	      \'default_opts': ['-i', '--vimgrep'],
+	      \'recursive_opts': [],
+	      \'pattern_opt': [],
+	      \'separator': ['--'],
+	      \'final_opts': [],
+        \})
+
+  nnoremap <silent> <c-p> :Denite file_rec<CR>
+  nnoremap <silent> <leader>h :Denite help<CR>
+  nnoremap <silent> <leader>v :Denite vison<CR>
+  nnoremap <silent> <leader>c :Denite colorscheme<CR>
+  nnoremap <silent> <leader>b :Denite buffer<CR>
+  nnoremap <silent> <leader>a :Denite grep:::!<CR>
+  nnoremap <silent> <leader>u :call dein#update()<CR>
+  nnoremap <silent> <Leader>i :Denite menu:ionic <CR>
+  call denite#custom#map('insert','<C-n>','<denite:move_to_next_line>','noremap')
+	call denite#custom#map('insert','<C-p>','<denite:move_to_previous_line>','noremap')
+  call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+    \ [ '.git/', '.ropeproject/', '__pycache__/',
+    \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
+  call denite#custom#var('menu', 'menus', s:menus)
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+"}}}
+"
+" Better display for messages
+set cmdheight=2
+" always show signcolumns
+set signcolumn=yes
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> for trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <C-x><C-o> to complete 'word', 'emoji' and 'include' sources
+imap <silent> <C-x><C-o> <Plug>(coc-complete-custom)
+
+" Use <cr> for confirm completion.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[c` and `]c` for navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K for show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Show signature help while editing
+autocmd CursorHoldI * silent! call CocActionAsync('showSignatureHelp')
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+vmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+
+" Use `:Format` for format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` for fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+
+" Add diagnostic info for https://github.com/itchyny/lightline.vim
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status'
+      \ },
+      \ }
+
+
+
+" Shortcuts for denite interface
+" Show symbols of current buffer
+nnoremap <silent> <space>o  :<C-u>Denite coc-symbols<cr>
+" Search symbols of current workspace
+nnoremap <silent> <space>t  :<C-u>Denite coc-workspace<cr>
+" Show diagnostics of current workspace
+nnoremap <silent> <space>a  :<C-u>Denite coc-diagnostic<cr>
+" Show available commands
+nnoremap <silent> <space>c  :<C-u>Denite coc-command<cr>
+" Show available services
+nnoremap <silent> <space>s  :<C-u>Denite coc-service<cr>
+" Show links of current buffer
+nnoremap <silent> <space>l  :<C-u>Denite coc-link<cr>
