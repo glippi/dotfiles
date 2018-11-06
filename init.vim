@@ -249,10 +249,10 @@ augroup vimrc-wrapping
   autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
 augroup END
 "Let ALE run prettier with local config on save
-let g:ale_fixers = {'javascript': ['eslint']}
+let g:ale_fixers = {'javascript': ['eslint'], 'typescript': ['eslint', 'tslint']}
 highlight ALEWarning ctermbg=DarkMagenta
 highlight ALEError ctermbg=Red
-"let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_fixers['javascript'] = ['prettier']
 let g:ale_fix_on_save = 1
 "" Git
 noremap <Leader>ga :Gwrite<CR>
