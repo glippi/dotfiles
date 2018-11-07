@@ -32,7 +32,7 @@ Plug 'GabrieleLippi/ydkjs-vim'
 Plug 'GabrieleLippi/jsx-tags-vim'
 " Language server for TS
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'mhartington/nvim-typescript', {'do': './install.sh' }
+"Plug 'mhartington/nvim-typescript', {'do': './install.sh' }
 " For async completion
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/denite.nvim'
@@ -89,11 +89,23 @@ set noswapfile
 
 set mouse=nvi
 set nottimeout
+
 " === Ale === "
+"Let ALE run prettier with local config on save
+highlight ALEWarning ctermbg=DarkMagenta
+highlight ALEError ctermbg=Red
+
 " Enable language-specif linters
 let g:ale_linters = {
-\ 'javascript' : ['eslint']
+\ 'javascript' : ['eslint'],
+\ 'typescript' : ['tslint'],
 \ }
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint', 'prettier'],
+\   'typescript': ['tslint', 'prettier'],
+\   'css': ['prettier'],
+\}
 
 " Customize warning/error signs
 let g:ale_sign_error = '!?'
@@ -105,7 +117,11 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 " Don't lint on text change, only on save
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 1
-let g:ale_lint_on_enter = 1
+"let g:ale_lint_on_enter = 1
+
+" Set this variable to 1 to fix files when you save them.
+let g:ale_fix_on_save = 1
+
 
 " === vim-javascript === "
 
@@ -178,7 +194,7 @@ nnoremap <leader>ds BxEx
 inoremap jk <esc>
 
 " Console log from insert mode; console.log()  Puts focus inside parentheses
-imap cll console.log({ })<Esc>==f{a 
+imap cll console.log({ })<Esc>==f{a
 " Console log from visual mode on next line, puts visual selection inside parentheses
 vmap cll yocll<Esc>p
 " Console log from normal mode, inserted on next line with word your on inside parentheses
@@ -218,9 +234,9 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 "lorem ipsum
 iabbrev lis Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer diam augue, egestas quis, aliquam ut, venenatis ut, quam.
 
-iabbrev lim Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer diam augue, egestas quis, aliquam ut, venenatis ut, quam. Quisque ut augue. Integer non neque a lectus venenatis fermentum. 
+iabbrev lim Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer diam augue, egestas quis, aliquam ut, venenatis ut, quam. Quisque ut augue. Integer non neque a lectus venenatis fermentum.
 
-iabbrev lix Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer diam augue, egestas quis, aliquam ut, venenatis ut, quam. Quisque ut augue. Integer non neque a lectus venenatis fermentum. Morbi quis eros nec elit molestie vehicula. Integer nunc lacus, sodales posuere, rutrum quis, blandit at, mi. 
+iabbrev lix Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer diam augue, egestas quis, aliquam ut, venenatis ut, quam. Quisque ut augue. Integer non neque a lectus venenatis fermentum. Morbi quis eros nec elit molestie vehicula. Integer nunc lacus, sodales posuere, rutrum quis, blandit at, mi.
 
 " React
 iabbrev ire import React from 'react'
@@ -249,17 +265,11 @@ augroup vimrc-wrapping
   autocmd!
   autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
 augroup END
-"Let ALE run prettier with local config on save
-let g:ale_fixers = {'javascript': ['eslint'], 'typescript': ['eslint', 'tslint']}
-highlight ALEWarning ctermbg=DarkMagenta
-highlight ALEError ctermbg=Red
-let g:ale_fixers['javascript'] = ['prettier']
-let g:ale_fix_on_save = 1
 "" Git
 noremap <Leader>ga :Gwrite<CR>
 noremap <Leader>gc :Gcommit<CR>
-noremap <Leader>gps :Git ps<CR>
-noremap <Leader>gpl :Git pl<CR>
+noremap <Leader>gp :Git ps<CR>
+noremap <Leader>gl :Git pl<CR>
 noremap <Leader>gs :Gstatus<CR>
 noremap <Leader>gb :Gblame<CR>
 noremap <Leader>gd :Gvdiff<CR>
@@ -310,26 +320,9 @@ function! StripWhitespace()
 	call setreg('/', old_query)
 endfunction
 
-"searches the word under the cursor through the project tree using fzf and Ag
-noremap <Leader>d :exe ':Ag ' . expand('<cword>')<CR>
-"opens up the fzf Ag search
-noremap <C-f> :Ag
-" Find file on buffer (open file)
-nnoremap <silent> <leader>b :Buffers<CR>
-" Find and open files
-nnoremap <silent> <leader>e :FZF -m<CR>
-
-
-"" fzf.vim
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
-let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
-
-" The Silver Searcher
-if executable('ag')
-  let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
-  set grepprg=ag\ --nogroup\ --nocolor
-endif
+"*****************************************************************************
+"" end
+"*****************************************************************************
 
 tnoremap <Esc> <C-\><C-n>
 nnoremap <leader>v :vs<CR>
@@ -435,6 +428,11 @@ let g:echodoc_enable_at_startup = 1
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 "}}}
 "
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" COC
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Better display for messages
 set cmdheight=2
 " always show signcolumns
@@ -492,49 +490,3 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
-
-" Remap for format selected region
-vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-vmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap for do codeAction of current line
-nmap <leader>ac  <Plug>(coc-codeaction)
-
-" Use `:Format` for format current buffer
-command! -nargs=0 Format :call CocAction('format')
-
-" Use `:Fold` for fold current buffer
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-
-" Add diagnostic info for https://github.com/itchyny/lightline.vim
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'cocstatus': 'coc#status'
-      \ },
-      \ }
-
-
-
-" Shortcuts for denite interface
-" Show symbols of current buffer
-nnoremap <silent> <space>o  :<C-u>Denite coc-symbols<cr>
-" Search symbols of current workspace
-nnoremap <silent> <space>t  :<C-u>Denite coc-workspace<cr>
-" Show diagnostics of current workspace
-nnoremap <silent> <space>a  :<C-u>Denite coc-diagnostic<cr>
-" Show available commands
-nnoremap <silent> <space>c  :<C-u>Denite coc-command<cr>
-" Show available services
-nnoremap <silent> <space>s  :<C-u>Denite coc-service<cr>
-" Show links of current buffer
-nnoremap <silent> <space>l  :<C-u>Denite coc-link<cr>
