@@ -58,7 +58,7 @@ set nu
 set relativenumber
 
 " Yank and paste with the system clipboard
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " Insert spaces when TAB is pressed.
 set expandtab
