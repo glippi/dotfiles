@@ -11,7 +11,7 @@ Plug 'w0rp/ale'
 Plug 'chemzqm/vim-jsx-improve'
 "Reason ML syntax
 Plug 'reasonml-editor/vim-reason-plus'
-"Improved syntax highlighting and indentation
+"Improved syntax for JavaScript
 Plug 'othree/yajs.vim'
 "Customized vim status line
 Plug 'vim-airline/vim-airline'
@@ -36,8 +36,9 @@ Plug 'mhartington/nvim-typescript', {'do': './install.sh' }
 " For async completion
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/denite.nvim'
+"Display function signature in cmd line
+Plug 'Shougo/echodoc.vim'
 Plug 'machakann/vim-highlightedyank'
-"Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 call plug#end()
 
 filetype plugin indent on
@@ -174,21 +175,8 @@ set gdefault
 
 "Open .vimrc in split window
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-"Refresh .vimrc in order to take advantage of changes
+"Refresh .vimrc
 nnoremap <leader>sv :source $MYVIMRC<cr>
-
-"surround word under cursor with "
-nnoremap <leader>" bi"<esc>ea"<esc>l
-"surround word under cursor with `
-nnoremap <leader>` bi`<esc>ea`<esc>l
-"surround word under cursor with '
-nnoremap <leader>' bi'<esc>ea'<esc>l
-"surround word under cursor with []
-nnoremap <leader>[ bi[<esc>ea]<esc>l
-"surround word under cursor with {}
-nnoremap <leader>{ bi{<esc>ea}<esc>l
-"delete " surround word under cursor
-nnoremap <leader>ds BxEx
 
 " jk to esc
 inoremap jk <esc>
@@ -213,11 +201,6 @@ nmap !if yiwoif (!)<Esc>F!pA return null
 tnoremap <Leader>sh <C-\><C-n>:vsplit <CR>:term<CR>i
 noremap <Leader>sh :vsplit <CR>:term<CR>i
 inoremap <Leader>sh <Esc>:vsplit <CR>:term<CR>i
-
-" Cycle through buffers
-
-let g:nvim_typescript#max_completion_detail=100
-nnoremap <C-p> :execute ":buffer ".(bufnr("%") - 1)<CR>
 
 " create a new tab and open a terminal window in insert mode
 nnoremap <leader>te :tabnew<esc>:terminal<CR>i
@@ -338,169 +321,93 @@ nnoremap <leader>h :sp<CR>
 " Deoplete ------------------------------------------------------------------{{{
 
 " enable deoplete
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#auto_complete_delay = 0
-  let g:echodoc_enable_at_startup=1
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_delay = 0
+let g:echodoc_enable_at_startup=1
 let g:nvim_typescript#max_completion_detail=100
 let g:echodoc_enable_at_startup = 1
-  set splitbelow
-  set completeopt+=menuone,noinsert,noselect
-  set completeopt-=preview
-  " autocmd CompleteDone * pclose
-
-  function! Multiple_cursors_before()
-    let b:deoplete_disable_auto_complete=2
-  endfunction
-  function! Multiple_cursors_after()
-    let b:deoplete_disable_auto_complete=0
-  endfunction
-  let g:deoplete#file#enable_buffer_path=1
-  call deoplete#custom#source('buffer', 'mark', 'ℬ')
-  call deoplete#custom#source('tern', 'mark', '')
-  call deoplete#custom#source('omni', 'mark', '⌾')
-  call deoplete#custom#source('file', 'mark', '')
-  call deoplete#custom#source('jedi', 'mark', '')
-  call deoplete#custom#source('neosnippet', 'mark', '')
-  call deoplete#custom#source('LanguageClient', 'mark', '')
-  call deoplete#custom#source('typescript',  'rank', 630)
-  call deoplete#custom#source('_', 'matchers', ['matcher_cpsm'])
-  " call deoplete#custom#source('_', 'sorters', [])
-  let g:deoplete#omni_patterns = {
-        \ 'html': '',
-        \ 'css': '',
-        \ 'scss': ''
-        \}
-  function! Preview_func()
-    if &pvw
-      setlocal nonumber norelativenumber
-     endif
-  endfunction
-  autocmd WinEnter * call Preview_func()
-  let g:deoplete#ignore_sources = {'_': ['around', 'buffer' ]}
-
-  " let g:deoplete#enable_debug = 1
-  " call deoplete#enable_logging('DEBUG', 'deoplete.log')
-  " call deoplete#custom#source('typescript', 'is_debug_enabled', 1)
+set splitbelow
+set completeopt+=menuone,noinsert,noselect
+set completeopt-=preview
+" autocmd CompleteDone * pclose
+let g:deoplete#file#enable_buffer_path=1
+call deoplete#custom#source('buffer', 'mark', 'ℬ')
+call deoplete#custom#source('tern', 'mark', '')
+call deoplete#custom#source('omni', 'mark', '⌾')
+call deoplete#custom#source('file', 'mark', '')
+call deoplete#custom#source('jedi', 'mark', '')
+call deoplete#custom#source('neosnippet', 'mark', '')
+call deoplete#custom#source('LanguageClient', 'mark', '')
+call deoplete#custom#source('typescript',  'rank', 630)
+call deoplete#custom#source('_', 'matchers', ['matcher_cpsm'])
+" call deoplete#custom#source('_', 'sorters', [])
+let g:deoplete#omni_patterns = {
+      \ 'html': '',
+      \ 'css': '',
+      \ 'scss': ''
+      \}
+function! Preview_func()
+  if &pvw
+    setlocal nonumber norelativenumber
+   endif
+endfunction
+autocmd WinEnter * call Preview_func()
+let g:deoplete#ignore_sources = {'_': ['around', 'buffer' ]}
 "}}}
-"
+
 " Denite --------------------------------------------------------------------{{{
+let s:menus = {}
+call denite#custom#option('_', {
+      \ 'prompt': '❯',
+      \ 'winheight': 10,
+      \ 'updatetime': 1,
+      \ 'auto_resize': 0,
+      \ 'highlight_matched_char': 'Underlined',
+      \ 'highlight_mode_normal': 'CursorLine',
+      \ 'reversed': 1,
+      \})
+call denite#custom#option('TSDocumentSymbol', {
+      \ 'prompt': ' @' ,
+      \})
+call denite#custom#option('TSWorkspaceSymbol', {
+      \ 'prompt': ' #' ,
+      \})
 
-  let s:menus = {}
-  call denite#custom#option('_', {
-        \ 'prompt': '❯',
-        \ 'winheight': 10,
-        \ 'updatetime': 1,
-        \ 'auto_resize': 0,
-        \ 'highlight_matched_char': 'Underlined',
-        \ 'highlight_mode_normal': 'CursorLine',
-        \ 'reversed': 1,
-        \})
-  call denite#custom#option('TSDocumentSymbol', {
-        \ 'prompt': ' @' ,
-        \})
-  call denite#custom#option('TSWorkspaceSymbol', {
-        \ 'prompt': ' #' ,
-        \})
+      call denite#custom#source('file_rec', 'vars', {
+      \'command': ['rg', '--files', '--glob', '!.git'],
+      \'sorters':['sorter_sublime'],
+      \'matchers': ['matches_cpsm']
+      \})
+"     \ 'command': ['ag', '--follow','--nogroup','--hidden', '--column', '-g', '', '--ignore', '.git', '--ignore', '*.png', '--ignore', 'node_modules'
 
-	call denite#custom#source('file_rec', 'vars', {
-        \'command': ['rg', '--files', '--glob', '!.git'],
-        \'sorters':['sorter_sublime'],
-        \'matchers': ['matches_cpsm']
-        \})
-  "     \ 'command': ['ag', '--follow','--nogroup','--hidden', '--column', '-g', '', '--ignore', '.git', '--ignore', '*.png', '--ignore', 'node_modules'
+      call denite#custom#source('grep', 'vars', {
+      \'command': ['rg'],
+            \'default_opts': ['-i', '--vimgrep'],
+            \'recursive_opts': [],
+            \'pattern_opt': [],
+            \'separator': ['--'],
+            \'final_opts': [],
+      \})
 
-	call denite#custom#source('grep', 'vars', {
-        \'command': ['rg'],
-	      \'default_opts': ['-i', '--vimgrep'],
-	      \'recursive_opts': [],
-	      \'pattern_opt': [],
-	      \'separator': ['--'],
-	      \'final_opts': [],
-        \})
-
-  nnoremap <silent> <c-p> :Denite file_rec<CR>
-  nnoremap <silent> <leader>h :Denite help<CR>
-  nnoremap <silent> <leader>c :Denite colorscheme<CR>
-  nnoremap <silent> <leader>b :Denite buffer<CR>
-  nnoremap <silent> <leader>a :Denite grep:::!<CR>
-  nnoremap <silent> <leader>u :call dein#update()<CR>
-  nnoremap <silent> <Leader>i :Denite menu:ionic <CR>
-  call denite#custom#map('insert','<C-n>','<denite:move_to_next_line>','noremap')
-	call denite#custom#map('insert','<C-p>','<denite:move_to_previous_line>','noremap')
-  call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-    \ [ '.git/', '.ropeproject/', '__pycache__/',
-    \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
-  call denite#custom#var('menu', 'menus', s:menus)
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+nnoremap <silent> <c-p> :Denite file_rec<CR>
+nnoremap <silent> <leader>h :Denite help<CR>
+nnoremap <silent> <leader>c :Denite colorscheme<CR>
+nnoremap <silent> <leader>b :Denite buffer<CR>
+nnoremap <silent> <leader>a :Denite grep:::!<CR>
+nnoremap <silent> <leader>u :call dein#update()<CR>
+call denite#custom#map('insert','<C-n>','<denite:move_to_next_line>','noremap')
+call denite#custom#map('insert','<C-p>','<denite:move_to_previous_line>','noremap')
+call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+  \ [ '.git/', '.ropeproject/', '__pycache__/',
+  \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
+call denite#custom#var('menu', 'menus', s:menus)
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 "}}}
-"
 
 " Better display for messages
 set cmdheight=2
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" COC
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" always show signcolumns
-"set signcolumn=yes
-"
-"" Use tab for trigger completion with characters ahead and navigate.
-"" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-"inoremap <silent><expr> <TAB>
-"      \ pumvisible() ? "\<C-n>" :
-"      \ <SID>check_back_space() ? "\<TAB>" :
-"      \ coc#refresh()
-"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-"
-"function! s:check_back_space() abort
-"  let col = col('.') - 1
-"  return !col || getline('.')[col - 1]  =~# '\s'
-"endfunction
-"
-"" Use <c-space> for trigger completion.
-"inoremap <silent><expr> <c-space> coc#refresh()
-"
-"" Use <C-x><C-o> to complete 'word', 'emoji' and 'include' sources
-"imap <silent> <C-x><C-o> <Plug>(coc-complete-custom)
-"
-"" Use <cr> for confirm completion.
-"" Coc only does snippet and additional edit on confirm.
-"inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-"
-"" Use `[c` and `]c` for navigate diagnostics
-"nmap <silent> [c <Plug>(coc-diagnostic-prev)
-"nmap <silent> ]c <Plug>(coc-diagnostic-next)
-"
-"" Remap keys for gotos
-"nmap <silent> gd <Plug>(coc-definition)
-"nmap <silent> gy <Plug>(coc-type-definition)
-"nmap <silent> gi <Plug>(coc-implementation)
-"nmap <silent> gr <Plug>(coc-references)
-"
-"" Use K for show documentation in preview window
-"nnoremap <silent> K :call <SID>show_documentation()<CR>
-"
-"function! s:show_documentation()
-"  if &filetype == 'vim'
-"    execute 'h '.expand('<cword>')
-"  else
-"    call CocAction('doHover')
-"  endif
-"endfunction
-"
-"" Show signature help while editing
-"autocmd CursorHoldI * silent! call CocActionAsync('showSignatureHelp')
-"
-"" Highlight symbol under cursor on CursorHold
-"autocmd CursorHold * silent call CocActionAsync('highlight')
-"
-"" Remap for rename current word
-"nmap <leader>rn <Plug>(coc-rename)
-"
-"" Manually override some filetypes extensions to specific filetypes
-"augroup filetypedetect
-"    au BufRead,BufNewFile *.tsx set filetype=typescript
-"  augroup END
-
+" nvim-typescript
+let g:nvim_typescript#max_completion_detail=100
 let g:nvim_typescript#type_info_on_hold = 1
 let g:nvim_typescript#default_mappings = 1
