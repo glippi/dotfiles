@@ -413,7 +413,6 @@ let g:echodoc_enable_at_startup = 1
 
   nnoremap <silent> <c-p> :Denite file_rec<CR>
   nnoremap <silent> <leader>h :Denite help<CR>
-  nnoremap <silent> <leader>v :Denite vison<CR>
   nnoremap <silent> <leader>c :Denite colorscheme<CR>
   nnoremap <silent> <leader>b :Denite buffer<CR>
   nnoremap <silent> <leader>a :Denite grep:::!<CR>
