@@ -29,7 +29,7 @@ Plug 'junegunn/fzf.vim'
 "AG SilverSurfer
 Plug 'rking/ag.vim'
 Plug 'GabrieleLippi/ydkjs-vim'
-Plug 'GabrieleLippi/jsx-tags-vim'
+Plug 'GabrieleLippi/emmex-vim'
 " Language server for TS
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh' }
@@ -411,3 +411,4 @@ set cmdheight=2
 let g:nvim_typescript#max_completion_detail=100
 let g:nvim_typescript#type_info_on_hold = 1
 let g:nvim_typescript#default_mappings = 1
+autocmd BufEnter *.tsx set filetype=typescript
