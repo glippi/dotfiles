@@ -65,7 +65,8 @@ HIST_STAMPS="dd/mm/yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
+  git,
+  ubuntu
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -107,4 +108,3 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 if [ "$TMUX" = "" ]; then tmux; fi
-
