@@ -16,9 +16,10 @@ Plug 'othree/yajs.vim'
 "Customized vim status line
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+" Set filetype to tsx
+Plug 'ianks/vim-tsx'
 "Git in vim
 Plug 'tpope/vim-fugitive'
-Plug 'jreybert/vimagit'
 "Display css color in css files
 Plug 'gko/vim-coloresque'
 " Surround motion
