@@ -16,8 +16,6 @@ Plug 'othree/yajs.vim'
 "Customized vim status line
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Set filetype to tsx
-Plug 'ianks/vim-tsx'
 "Git in vim
 Plug 'tpope/vim-fugitive'
 "Display css color in css files
@@ -138,11 +136,11 @@ let g:jsx_ext_required = 0
 set termguicolors
 
 " Editor theme
-"let g:falcon_background = 0
+let g:falcon_background = 0
 "let g:falcon_inactive = 1
 "colorscheme falcon
 set background=dark
-colorscheme gruvbox
+colorscheme falcon
 
 " Vim airline theme
 "let g:falcon_airline = 1
@@ -401,11 +399,11 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 " Better display for messages
 set cmdheight=2
 
-" nvim-typescript
-let g:nvim_typescript#max_completion_detail=100
-let g:nvim_typescript#type_info_on_hold = 1
-let g:nvim_typescript#default_mappings = 1
-autocmd BufEnter *.tsx set filetype=typescript
+"" nvim-typescript
+"let g:nvim_typescript#max_completion_detail=100
+"let g:nvim_typescript#type_info_on_hold = 1
+"let g:nvim_typescript#default_mappings = 1
+"autocmd BufEnter *.tsx set filetype=typescript
 
 "COC configuration
 " always show signcolumns
@@ -526,3 +524,6 @@ nnoremap <leader>nf :e %:h/
     nnoremap <silent> <Tab><Down> :wincmd j<CR>
     nnoremap <silent> <Tab><Left> :wincmd h<CR>
     nnoremap <silent> <Tab><Right> :wincmd l<CR>
+
+" TypeScript
+    autocmd BufEnter,BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
