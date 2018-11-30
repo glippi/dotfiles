@@ -104,12 +104,10 @@ highlight ALEError ctermbg=Red
 " Enable language-specif linters
 let g:ale_linters = {
 \ 'javascript' : ['eslint'],
-\ 'typescript' : ['tslint'],
 \ }
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['eslint', 'prettier'],
-\   'typescript': ['tslint', 'prettier'],
 \   'css': ['prettier'],
 \}
 
@@ -128,8 +126,6 @@ let g:ale_lint_on_enter = 1
 " Set this variable to 1 to fix files when you save them.
 let g:ale_fix_on_save = 1
 
-
-" === vim-javascript === "
 
 " === vim-jsx === "
 " Highlight jsx syntax even in non .jsx files
@@ -299,15 +295,6 @@ function! LoadMainNodeModule(fname)
     else
         return nodeModules . a:fname
     endif
-endfunction
-
-" Strip trailing whitespace (,ss)
-function! StripWhitespace()
-	let save_cursor = getpos(".")
-	let old_query = getreg('/')
-	:%s/\s\+$//e
-	call setpos('.', save_cursor)
-	call setreg('/', old_query)
 endfunction
 
 function! s:PlaceholderImgTag(size)
@@ -518,3 +505,24 @@ nnoremap <silent> <space>s  :<C-u>Denite coc-service<cr>
 nnoremap <silent> <space>l  :<C-u>Denite coc-link<cr>
 " create new file in the current directory
 nnoremap <leader>nf :e %:h/
+
+" Remove Trailing spaces on save
+    autocmd BufWritePre <buffer> %s/\s\+$//e
+
+
+" View navigation
+    "Resize vertical view splits with + & -
+    nnoremap <silent> + :exe "resize " . (winheight(0) * 3/2)<CR>
+    nnoremap <silent> - :exe "resize " . (winheight(0) * 2/3)<CR>
+    " Resize horizontal view splits with
+    nnoremap <silent> ] :vertical resize +10<CR>
+    nnoremap <silent> [ :vertical resize -10<CR>
+
+    "Cycle to views with double tab
+    nnoremap <silent> <Tab><Tab> <C-w>w
+
+    "Navigating through windows
+    nnoremap <silent> <Tab><Up> :wincmd k<CR>
+    nnoremap <silent> <Tab><Down> :wincmd j<CR>
+    nnoremap <silent> <Tab><Left> :wincmd h<CR>
+    nnoremap <silent> <Tab><Right> :wincmd l<CR>
