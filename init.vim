@@ -52,6 +52,9 @@ filetype plugin indent on
 " ===                           EDITING OPTIONS                            === "
 " ============================================================================ "
 " Required for operations modifying multiple buffers like rename.
+
+set encoding=UTF-8
+
 set hidden
 
 set path+=**
