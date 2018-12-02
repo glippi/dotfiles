@@ -9,8 +9,6 @@ Plug 'raimondi/delimitmate'
 Plug 'w0rp/ale'
 "ReactJS JSX syntax highlighting
 Plug 'chemzqm/vim-jsx-improve'
-"Reason ML syntax
-Plug 'reasonml-editor/vim-reason-plus'
 "Improved syntax for JavaScript
 Plug 'othree/yajs.vim'
 "Customized vim status line
@@ -18,8 +16,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 "Git in vim
 Plug 'tpope/vim-fugitive'
-"Display css color in css files
-Plug 'gko/vim-coloresque'
 " Surround motion
 Plug 'tpope/vim-surround'
 "FuzzyFinder
@@ -31,11 +27,8 @@ Plug 'GabrieleLippi/ydkjs-vim'
 Plug 'GabrieleLippi/emmex-vim'
 " syntax for TS
 Plug 'HerringtonDarkholme/yats.vim'
-" Language server for TS
-"Plug 'mhartington/nvim-typescript', {'do': './install.sh' }
 " For async completion
 Plug 'Shougo/deoplete.nvim'
-Plug 'Shougo/denite.nvim'
 "Display function signature in cmd line
 Plug 'Shougo/echodoc.vim'
 Plug 'machakann/vim-highlightedyank'
@@ -52,9 +45,6 @@ filetype plugin indent on
 " ===                           EDITING OPTIONS                            === "
 " ============================================================================ "
 " Required for operations modifying multiple buffers like rename.
-
-set encoding=UTF-8
-
 set hidden
 
 set path+=**
@@ -141,11 +131,11 @@ let g:jsx_ext_required = 0
 set termguicolors
 
 " Editor theme
-let g:falcon_background = 0
+"let g:falcon_background = 0
 "let g:falcon_inactive = 1
 "colorscheme falcon
 set background=dark
-colorscheme falcon
+colorscheme gruvbox
 
 " Vim airline theme
 "let g:falcon_airline = 1
@@ -352,63 +342,8 @@ autocmd WinEnter * call Preview_func()
 let g:deoplete#ignore_sources = {'_': ['around', 'buffer' ]}
 "}}}
 
-" Denite --------------------------------------------------------------------{{{
-let s:menus = {}
-call denite#custom#option('_', {
-      \ 'prompt': '❯',
-      \ 'winheight': 10,
-      \ 'updatetime': 1,
-      \ 'auto_resize': 0,
-      \ 'highlight_matched_char': 'Underlined',
-      \ 'highlight_mode_normal': 'CursorLine',
-      \ 'reversed': 1,
-      \})
-call denite#custom#option('TSDocumentSymbol', {
-      \ 'prompt': ' @' ,
-      \})
-call denite#custom#option('TSWorkspaceSymbol', {
-      \ 'prompt': ' #' ,
-      \})
-
-      call denite#custom#source('file_rec', 'vars', {
-      \'command': ['rg', '--files', '--glob', '!.git'],
-      \'sorters':['sorter_sublime'],
-      \'matchers': ['matches_cpsm']
-      \})
-"     \ 'command': ['ag', '--follow','--nogroup','--hidden', '--column', '-g', '', '--ignore', '.git', '--ignore', '*.png', '--ignore', 'node_modules'
-
-      call denite#custom#source('grep', 'vars', {
-      \'command': ['rg'],
-            \'default_opts': ['-i', '--vimgrep'],
-            \'recursive_opts': [],
-            \'pattern_opt': [],
-            \'separator': ['--'],
-            \'final_opts': [],
-      \})
-
-nnoremap <silent> <c-p> :Denite file_rec<CR>
-nnoremap <silent> <leader>h :Denite help<CR>
-nnoremap <silent> <leader>c :Denite colorscheme<CR>
-nnoremap <silent> <leader>b :Denite buffer<CR>
-nnoremap <silent> <leader>a :Denite grep:::!<CR>
-nnoremap <silent> <leader>u :call dein#update()<CR>
-call denite#custom#map('insert','<C-n>','<denite:move_to_next_line>','noremap')
-call denite#custom#map('insert','<C-p>','<denite:move_to_previous_line>','noremap')
-call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-  \ [ '.git/', '.ropeproject/', '__pycache__/',
-  \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
-call denite#custom#var('menu', 'menus', s:menus)
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-"}}}
-
 " Better display for messages
 set cmdheight=2
-
-"" nvim-typescript
-"let g:nvim_typescript#max_completion_detail=100
-"let g:nvim_typescript#type_info_on_hold = 1
-"let g:nvim_typescript#default_mappings = 1
-"autocmd BufEnter *.tsx set filetype=typescript
 
 "COC configuration
 " always show signcolumns
@@ -491,44 +426,47 @@ let g:lightline = {
       \ },
       \ }
 
+" Remove Trailing spaces on save
+autocmd BufWritePre <buffer> %s/\s\+$//e
 
+" View navigation
+" Resize vertical view splits with + & -
+nnoremap <silent> + :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> - :exe "resize " . (winheight(0) * 2/3)<CR>
+" Resize horizontal view splits with
+nnoremap <silent> ] :vertical resize +10<CR>
+nnoremap <silent> [ :vertical resize -10<CR>
 
-" Shortcuts for denite interface
-" Show symbols of current buffer
-nnoremap <silent> <space>o  :<C-u>Denite coc-symbols<cr>
-" Search symbols of current workspace
-nnoremap <silent> <space>t  :<C-u>Denite coc-workspace<cr>
-" Show diagnostics of current workspace
-nnoremap <silent> <space>a  :<C-u>Denite coc-diagnostic<cr>
-" Show available commands
-nnoremap <silent> <space>c  :<C-u>Denite coc-command<cr>
-" Show available services
-nnoremap <silent> <space>s  :<C-u>Denite coc-service<cr>
-" Show links of current buffer
-nnoremap <silent> <space>l  :<C-u>Denite coc-link<cr>
+"Cycle to views with double tab
+nnoremap <silent> <Tab><Tab> <C-w>w
+
+"Navigating through windows
+nnoremap <silent> <Tab><Up> :wincmd k<CR>
+nnoremap <silent> <Tab><Down> :wincmd j<CR>
+nnoremap <silent> <Tab><Left> :wincmd h<CR>
+nnoremap <silent> <Tab><Right> :wincmd l<CR>
+
+" TypeScript filetype
+autocmd BufEnter,BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
+
+" Making `j` and `k` work on visual lines
+nnoremap k gk
+nnoremap j gj
+nnoremap gk k
+nnoremap gj j
+
 " create new file in the current directory
 nnoremap <leader>nf :e %:h/
 
-" Remove Trailing spaces on save
-    autocmd BufWritePre <buffer> %s/\s\+$//e
-
-
-" View navigation
-    "Resize vertical view splits with + & -
-    nnoremap <silent> + :exe "resize " . (winheight(0) * 3/2)<CR>
-    nnoremap <silent> - :exe "resize " . (winheight(0) * 2/3)<CR>
-    " Resize horizontal view splits with
-    nnoremap <silent> ] :vertical resize +10<CR>
-    nnoremap <silent> [ :vertical resize -10<CR>
-
-    "Cycle to views with double tab
-    nnoremap <silent> <Tab><Tab> <C-w>w
-
-    "Navigating through windows
-    nnoremap <silent> <Tab><Up> :wincmd k<CR>
-    nnoremap <silent> <Tab><Down> :wincmd j<CR>
-    nnoremap <silent> <Tab><Left> :wincmd h<CR>
-    nnoremap <silent> <Tab><Right> :wincmd l<CR>
-
-" TypeScript
-    autocmd BufEnter,BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
+" FZF
+let g:fzf_layout = { 'window': '40split enew' }
+" search files
+nnoremap <c-p> :Files<CR>
+" search buffers
+nnoremap <c-b> :Buffers<CR>
+" search commits
+nnoremap <c-g> :Commits<CR>
+" search commits in current buffer
+nnoremap <c-bc> :BCommits<CR>
+" close with esc
+autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
