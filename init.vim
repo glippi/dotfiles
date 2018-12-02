@@ -42,6 +42,8 @@ Plug 'machakann/vim-highlightedyank'
 " Coc for TS
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'neoclide/coc.nvim', {'do': 'yarn install'}
+" vim devicons
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 filetype plugin indent on
