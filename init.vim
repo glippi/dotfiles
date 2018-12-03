@@ -35,8 +35,6 @@ Plug 'machakann/vim-highlightedyank'
 " Coc for TS
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'neoclide/coc.nvim', {'do': 'yarn install'}
-" vim devicons
-Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 filetype plugin indent on
@@ -101,6 +99,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['eslint', 'prettier'],
+\   'typescript': ['eslint', 'prettier'],
 \   'css': ['prettier'],
 \}
 
