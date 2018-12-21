@@ -1,5 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
 "Colorscheme
+Plug 'jeffkreeftmeijer/vim-dim'
 Plug 'fenetikm/falcon'
 Plug 'morhetz/gruvbox'
 Plug 'mhartington/oceanic-next'
@@ -413,17 +414,22 @@ command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 
-" Add diagnostic info for https://github.com/itchyny/lightline.vim
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'cocstatus': 'coc#status'
-      \ },
-      \ }
+
+" if you want to disable auto detect, comment out those two lines
+let g:airline#extensions#disable_rtp_load = 1
+let g:airline_extensions = ['branch', 'hunks', 'coc']
+let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+let airline#extensions#coc#error_symbol = 'Error:'
+let airline#extensions#coc#error_symbol = 'Warning:'
+let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
+let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
+
+" Setup kepmap for trigger completion
+inoremap <silent><expr> <c-space> coc#refresh()
+" <cr> for confirm completion
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
+
 
 " Remove Trailing spaces on save
 autocmd BufWritePre <buffer> %s/\s\+$//e
@@ -459,6 +465,8 @@ nnoremap <leader>nf :e %:h/
 
 " FZF
 let g:fzf_layout = { 'window': '40split enew' }
+" use ag for ignoring .git and node_modules
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 " search files
 nnoremap <c-p> :Files<CR>
 " search buffers
