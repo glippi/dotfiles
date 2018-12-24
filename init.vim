@@ -28,14 +28,8 @@ Plug 'GabrieleLippi/ydkjs-vim'
 Plug 'GabrieleLippi/emmex-vim'
 " syntax for TS
 Plug 'HerringtonDarkholme/yats.vim'
-" For async completion
-Plug 'Shougo/deoplete.nvim'
-"Display function signature in cmd line
-Plug 'Shougo/echodoc.vim'
 Plug 'machakann/vim-highlightedyank'
-" Coc for TS
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-Plug 'neoclide/coc.nvim', {'do': 'yarn install'}
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 call plug#end()
 
 filetype plugin indent on
@@ -87,38 +81,6 @@ set noswapfile
 
 set mouse=nvi
 set nottimeout
-
-" === Ale === "
-"Let ALE run prettier with local config on save
-highlight ALEWarning ctermbg=DarkMagenta
-highlight ALEError ctermbg=Red
-
-" Enable language-specif linters
-let g:ale_linters = {
-\ 'javascript' : ['eslint'],
-\ }
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['eslint', 'prettier'],
-\   'typescript': ['eslint', 'prettier'],
-\   'css': ['prettier'],
-\}
-
-" Customize warning/error signs
-let g:ale_sign_error = '⤫'
-let g:ale_sign_warning = '*'
-
-" Custom error format
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-
-" Don't lint on text change, only on save
-let g:ale_lint_on_text_changed = 0
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_enter = 1
-
-" Set this variable to 1 to fix files when you save them.
-let g:ale_fix_on_save = 1
-
 
 " === vim-jsx === "
 " Highlight jsx syntax even in non .jsx files
@@ -305,131 +267,8 @@ tnoremap <Esc> <C-\><C-n>
 nnoremap <leader>v :vs<CR>
 nnoremap <leader>h :sp<CR>
 
-" Deoplete ------------------------------------------------------------------{{{
-
-" enable deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_delay = 0
-let g:echodoc_enable_at_startup=1
-let g:nvim_typescript#max_completion_detail=100
-let g:echodoc_enable_at_startup = 1
-set splitbelow
-set completeopt+=menuone,noinsert,noselect
-set completeopt-=preview
-" autocmd CompleteDone * pclose
-let g:deoplete#file#enable_buffer_path=1
-call deoplete#custom#source('buffer', 'mark', 'ℬ')
-call deoplete#custom#source('tern', 'mark', '')
-call deoplete#custom#source('omni', 'mark', '⌾')
-call deoplete#custom#source('file', 'mark', '')
-call deoplete#custom#source('jedi', 'mark', '')
-call deoplete#custom#source('neosnippet', 'mark', '')
-call deoplete#custom#source('LanguageClient', 'mark', '')
-call deoplete#custom#source('typescript',  'rank', 630)
-call deoplete#custom#source('_', 'matchers', ['matcher_cpsm'])
-" call deoplete#custom#source('_', 'sorters', [])
-let g:deoplete#omni_patterns = {
-      \ 'html': '',
-      \ 'css': '',
-      \ 'scss': ''
-      \}
-function! Preview_func()
-  if &pvw
-    setlocal nonumber norelativenumber
-   endif
-endfunction
-autocmd WinEnter * call Preview_func()
-let g:deoplete#ignore_sources = {'_': ['around', 'buffer' ]}
-"}}}
-
 " Better display for messages
 set cmdheight=2
-
-"COC configuration
-" always show signcolumns
-set signcolumn=yes
-
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> for trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> for confirm completion.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Use `[c` and `]c` for navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K for show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if &filetype == 'vim'
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
-
-" Remap for format selected region
-vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-vmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap for do codeAction of current line
-nmap <leader>ac  <Plug>(coc-codeaction)
-
-" Use `:Format` for format current buffer
-command! -nargs=0 Format :call CocAction('format')
-
-" Use `:Fold` for fold current buffer
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-
-
-" if you want to disable auto detect, comment out those two lines
-let g:airline#extensions#disable_rtp_load = 1
-let g:airline_extensions = ['branch', 'coc']
-let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
-let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
-let airline#extensions#coc#error_symbol = 'Error:'
-let airline#extensions#coc#error_symbol = 'Warning:'
-let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
-let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
-
-" Setup kepmap for trigger completion
-inoremap <silent><expr> <c-space> coc#refresh()
-" <cr> for confirm completion
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
-
 
 " Remove Trailing spaces on save
 autocmd BufWritePre <buffer> %s/\s\+$//e
@@ -477,3 +316,32 @@ nnoremap <c-g> :Commits<CR>
 nnoremap <c-bc> :BCommits<CR>
 " close with esc
 autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
+
+" Ale
+highlight ALEWarning ctermbg=DarkMagenta
+highlight ALEError ctermbg=Red
+highlight ALEErrorSign ctermfg=9
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '*'
+" Custom error format
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint', 'prettier'],
+\   'typescript': ['prettier'],
+\   'css': ['prettier'],
+\}
+let g:ale_linters = {
+\   'javascript': ['eslint']
+\}
+" Don't lint on text change, only on save
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_enter = 1
+" Set this variable to 1 to fix files when you save them.
+let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
+noremap <c-]> :ALEGoToDefinition<CR>
+noremap <Leader>af :ALEFix<CR>
+noremap <Leader>ar :ALEFindReferences<CR>
+noremap <Leader>ah :ALEHover<CR>
