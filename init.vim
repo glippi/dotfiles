@@ -29,7 +29,6 @@ Plug 'GabrieleLippi/emmex-vim'
 " syntax for TS
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'machakann/vim-highlightedyank'
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 call plug#end()
 
 filetype plugin indent on
@@ -138,7 +137,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 inoremap jk <esc>
 
 " Console log from insert mode; console.log()  Puts focus inside parentheses
-imap cll console.log({ })<Esc>==f{a
+imap cll console.log({ })<Esc>==f{a<space>
 " Console log from visual mode on next line, puts visual selection inside parentheses
 vmap cll yocll<Esc>p
 " Console log from normal mode, inserted on next line with word your on inside parentheses
@@ -162,7 +161,7 @@ inoremap <Leader>sh <Esc>:vsplit <CR>:term<CR>i
 nnoremap <leader>te :tabnew<esc>:terminal<CR>i
 
 " create a new tab and open a terminal and start yarn
-nnoremap <leader>ys :tabnew<esc>:terminal<CR>yarn start<CR>
+nnoremap <leader>ys :tabnew<esc>:terminal<CR>iyarn start<CR>
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -328,14 +327,15 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['eslint', 'prettier'],
-\   'typescript': ['prettier'],
+\   'typescript': ['tslint', 'prettier'],
 \   'css': ['prettier'],
 \}
 let g:ale_linters = {
-\   'javascript': ['eslint']
+\   'javascript': ['eslint'],
+\   'typescript': ['tsserver'],
 \}
 " ignore tslint
-let g:ale_linters_ignore = {'typescript': ['tslint']}
+"let g:ale_linters_ignore = {'typescript': ['tslint']}
 " Don't lint on text change, only on save
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 1
@@ -343,8 +343,6 @@ let g:ale_lint_on_enter = 1
 " Set this variable to 1 to fix files when you save them.
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
-" Only run linters named in ale_linters settings.
-let g:ale_linters_explicit = 1
 let g:airline#extensions#ale#enabled = 1
 noremap <c-]> :ALEGoToDefinition<CR>
 noremap <Leader>af :ALEFix<CR>
@@ -353,3 +351,18 @@ noremap <Leader>ah :ALEHover<CR>
 " navigate between errors
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+"function! CompileTS()
+"  if &filetype == 'typescript.tsx' || &filetype == 'typescript.ts'|| &filetype == 'typescript'
+"    execute "!tsc index.ts"
+"  else
+"    echom "not a ts file"
+"  endif
+"endfunction
+"
+"autocmd BufWritePre <buffer> call CompileTS()
+ " ~ Remove searchhighlight ~
+nnoremap <silent> <backspace> :nohlsearch<cr>
+ " ~ Goto EOL in insert mode ~
+inoremap <c-e> <esc>A
+ " ~ New line ~
+imap <silent> <c-return> <esc>o<Paste>
