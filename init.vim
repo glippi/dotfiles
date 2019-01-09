@@ -340,6 +340,8 @@ let g:ale_linters = {
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 1
+let g:ale_virtualtext_cursor = 1 "Enable neovim's virtualtext support
+let g:ale_virtualtext_prefix = '  > '  "Move virtual text a bit more right
 " Set this variable to 1 to fix files when you save them.
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
@@ -351,18 +353,9 @@ noremap <Leader>ah :ALEHover<CR>
 " navigate between errors
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
-"function! CompileTS()
-"  if &filetype == 'typescript.tsx' || &filetype == 'typescript.ts'|| &filetype == 'typescript'
-"    execute "!tsc index.ts"
-"  else
-"    echom "not a ts file"
-"  endif
-"endfunction
-"
-"autocmd BufWritePre <buffer> call CompileTS()
  " ~ Remove searchhighlight ~
 nnoremap <silent> <backspace> :nohlsearch<cr>
  " ~ Goto EOL in insert mode ~
 inoremap <c-e> <esc>A
  " ~ New line ~
-imap <silent> <c-return> <esc>o<Paste>
+imap <silent> <c-return> <esc>o
