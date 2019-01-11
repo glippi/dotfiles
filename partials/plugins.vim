@@ -1,39 +1,33 @@
-call plug#begin('~/.config/nvim/plugged')
-"Colorscheme
-Plug 'morhetz/gruvbox'
-"Close brackets
-Plug 'raimondi/delimitmate'
-"Asynchronous linting
-Plug 'w0rp/ale'
-"ReactJS JSX syntax highlighting
-Plug 'chemzqm/vim-jsx-improve'
-"Improved syntax for JavaScript
-Plug 'othree/yajs.vim'
-" syntax for TS
-Plug 'HerringtonDarkholme/yats.vim'
-"Customized vim status line
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-"Git in vim
-Plug 'tpope/vim-fugitive'
-" Surround motion
-Plug 'tpope/vim-surround'
-"FuzzyFinder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-"AG SilverSurfer
-Plug 'rking/ag.vim'
-" Highlight yanked text
-Plug 'machakann/vim-highlightedyank'
-Plug 'GabrieleLippi/ydkjs-vim'
-Plug 'GabrieleLippi/emmex-vim'
-call plug#end()
+function! s:packager_init() abort
+  packadd vim-packager
+  call packager#init()
+  call packager#add('kristijanhusak/vim-packager', { 'type': 'opt' })
+  call packager#add('GabrieleLippi/ydkjs-vim')
+  call packager#add('GabrieleLippi/emmex-vim')
+  call packager#add('machakann/vim-highlightedyank')
+  call packager#add('junegunn/fzf', { 'do': './install --all && ln -sf $(pwd) ~/.fzf'})
+  call packager#add('junegunn/fzf.vim')
+  call packager#add('w0rp/ale')
+  call packager#add('tpope/vim-surround')
+  call packager#add('tpope/vim-fugitive')
+  call packager#add('vim-airline/vim-airline')
+  call packager#add('vim-airline/vim-airline-themes')
+  call packager#add('morhetz/gruvbox')
+  call packager#add('HerringtonDarkholme/yats.vim')
+  call packager#add('othree/yajs.vim')
+  call packager#add('Raimondi/delimitMate')
+  call packager#add('chemzqm/vim-jsx-improve')
+  call packager#add('rking/ag.vim')
+  call packager#add('tpope/vim-eunuch')
+endfunctio
+
+command! -nargs=0 PackagerInstall call s:packager_init() | call packager#install()
+command! -bang PackagerUpdate call s:packager_init() | call packager#update({ 'force_hooks': '<bang>' })
+command! PackagerClean call s:packager_init() | call packager#clean()
+command! PackagerStatus call s:packager_init() | call packager#status()
+
 
 " Highlight jsx syntax even in non .jsx files
 let g:jsx_ext_required = 0
-" set ag for vimgrep
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
