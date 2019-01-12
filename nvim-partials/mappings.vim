@@ -82,16 +82,8 @@ nnoremap <leader>h :sp<CR>
 nnoremap <leader>nf :e %:h/
 nnoremap <silent> <backspace> :nohlsearch<cr>
 " Console log from insert mode; console.log()  Puts focus inside parentheses
-imap cll console.log({ })<Esc>==f{a<space>
-" Console log from visual mode on next line, puts visual selection inside parentheses
-vmap cll yocll<Esc>p
+imap cll console.log({ })<Esc>==F{a<space>
 " Console log from normal mode, inserted on next line with word your on inside parentheses
 nmap cll yiwocll<Esc>p
-"JS Debugger
-imap break debuggerjk
-"Debugger from visual mode
-vmap break breakjk
-"Debugger from normal mode
-nmap break obreakjk
 " If statement check
 nmap !if yiwoif (!)<Esc>F!pA return null
