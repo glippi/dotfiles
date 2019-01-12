@@ -32,3 +32,6 @@ iabbrev io @inject('')<CR>@observer<esc>1k^f'a
 " flex
 iabbrev flow flex flex-row
 iabbrev floc flex flex-column
+
+" JavaScript
+iabbrev dbg debugger
