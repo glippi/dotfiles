@@ -81,9 +81,3 @@ nnoremap <leader>h :sp<CR>
 " create new file in the current directory
 nnoremap <leader>nf :e %:h/
 nnoremap <silent> <backspace> :nohlsearch<cr>
-" Console log from insert mode; console.log()  Puts focus inside parentheses
-imap cll console.log({ })<Esc>==F{a<space>
-" Console log from normal mode, inserted on next line with word your on inside parentheses
-nmap cll yiwocll<Esc>p
-" If statement check
-nmap !if yiwoif (!)<Esc>F!pA return null

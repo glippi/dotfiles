@@ -29,4 +29,5 @@ Plug 'GabrieleLippi/emmex-vim'
 " syntax for TS
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'machakann/vim-highlightedyank'
+Plug 'glippi/lognroll-vim'
 call plug#end()
