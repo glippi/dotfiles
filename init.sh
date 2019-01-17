@@ -11,7 +11,6 @@ echo "-= Creating necessary directories =-"
 mkdir -p ~/.config ~/.config/nvim ~/.config/nvim/partials
 
 echo "-= Symlinking new configs =-"
-echo ${wd}
 ln -sf ${wd}/zshrc ~/.zshrc
 ln -sf ${wd}/tmux.conf ~/.tmux.conf
 ln -sf ${wd}/init.vim ~/.config/nvim/init.vim
