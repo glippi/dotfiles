@@ -8,22 +8,21 @@ rm -rf ~/.zshrc ~/.vim ~/.vimrc ~/.config/nvim/ ~/.tmux ~/.tmux.conf 2 > /dev/nu
 
 #create neovim directory
 echo "-= Creating necessary directories =-"
-mkdir -p ~/.config ~/.config/nvim
-mkdir -p ~/.config ~/.config/nvim/nvim-partials
+mkdir -p ~/.config ~/.config/nvim ~/.config/nvim/partials
 
 echo "-= Symlinking new configs =-"
 echo ${wd}
-ln -s ${wd}/zshrc ~/.zshrc
-ln -s ${wd}/tmux.conf ~/.tmux.conf
-ln -s ${wd}/init.vim ~/.config/nvim/init.vim
-ln -s ${wd}/nvim-partials/abbreviations.vim ~/.config/nvim/nvim-partials/abbreviations.vim
-ln -s ${wd}/nvim-partials/ale.vim ~/.config/nvim/nvim-partials/ale.vim
-ln -s ${wd}/nvim-partials/colorscheme.vim ~/.config/nvim/nvim-partials/colorscheme.vim
-ln -s ${wd}/nvim-partials/functions.vim ~/.config/nvim/nvim-partials/functions.vim
-ln -s ${wd}/nvim-partials/fzf.vim ~/.config/nvim/nvim-partials/fzf.vim
-ln -s ${wd}/nvim-partials/mappings.vim ~/.config/nvim/nvim-partials/mappings.vim
-ln -s ${wd}/nvim-partials/plugins.vim ~/.config/nvim/nvim-partials/plugins.vim
-ln -s ${wd}/nvim-partials/settings.vim ~/.config/nvim/nvim-partials/settings.vim
-ln -s ${wd}/nvim-partials/statusline.vim ~/.config/nvim/nvim-partials/statusline.vim
+ln -sf ${wd}/zshrc ~/.zshrc
+ln -sf ${wd}/tmux.conf ~/.tmux.conf
+ln -sf ${wd}/init.vim ~/.config/nvim/init.vim
+ln -sf ${wd}/partials/settings.vim ~/.config/nvim/partials/settings.vim
+ln -sf ${wd}/partials/plugins.vim ~/.config/nvim/partials/plugins.vim
+ln -sf ${wd}/partials/mappings.vim ~/.config/nvim/partials/mappings.vim
+ln -sf ${wd}/partials/abbreviations.vim ~/.config/nvim/partials/abbreviations.vim
+ln -sf ${wd}/partials/statusline.vim ~/.config/nvim/partials/statusline.vim
+ln -sf ${wd}/partials/ale.vim ~/.config/nvim/partials/ale.vim
+ln -sf ${wd}/partials/fzf.vim ~/.config/nvim/partials/fzf.vim
+ln -sf ${wd}/partials/functions.vim ~/.config/nvim/partials/functions.vim
+ln -sf ${wd}/partials/colorscheme.vim ~/.config/nvim/partials/colorscheme.vim
 
 echo "-= Log out and Log Back In to see changes =-"

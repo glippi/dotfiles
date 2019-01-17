@@ -1,11 +1,9 @@
-let cwd = getcwd()
-let g:dotfilesPath  = expand('%:h')
-exe 'source' g:dotfilesPath . '/nvim-partials/settings.vim'
-exe 'source' g:dotfilesPath . '/nvim-partials/plugins.vim'
-exe 'source' g:dotfilesPath . '/nvim-partials/mappings.vim'
-exe 'source' g:dotfilesPath . '/nvim-partials/abbreviations.vim'
-exe 'source' g:dotfilesPath . '/nvim-partials/statusline.vim'
-exe 'source' g:dotfilesPath . '/nvim-partials/ale.vim'
-exe 'source' g:dotfilesPath . '/nvim-partials/fzf.vim'
-exe 'source' g:dotfilesPath . '/nvim-partials/colorscheme.vim'
-exe 'source' g:dotfilesPath . '/nvim-partials/functions.vim'
+source $HOME/.config/nvim/partials/settings.vim
+source $HOME/.config/nvim/partials/plugins.vim
+source $HOME/.config/nvim/partials/mappings.vim
+source $HOME/.config/nvim/partials/abbreviations.vim
+source $HOME/.config/nvim/partials/statusline.vim
+source $HOME/.config/nvim/partials/ale.vim
+source $HOME/.config/nvim/partials/fzf.vim
+source $HOME/.config/nvim/partials/colorscheme.vim
+source $HOME/.config/nvim/partials/functions.vim
