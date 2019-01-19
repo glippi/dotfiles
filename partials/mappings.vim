@@ -82,3 +82,4 @@ nnoremap <leader>h :sp<CR>
 nnoremap <leader>nf :e %:h/
 nnoremap <silent> <backspace> :nohlsearch<cr>
 let g:lognroll_vim#enable_insert_mode = 1
+nmap rr <Plug>lognroll#normal#log
