@@ -52,3 +52,5 @@ set matchtime=10000
 set nottimeout
 " Better display for messages
 set cmdheight=2
+"  just pasting a whole buffer of text
+set pastetoggle=<F2>
