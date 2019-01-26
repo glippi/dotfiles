@@ -24,13 +24,14 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 "AG SilverSurfer
 Plug 'rking/ag.vim'
-Plug 'GabrieleLippi/ydkjs-vim'
-Plug 'GabrieleLippi/emmex-vim'
 " syntax for TS
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'machakann/vim-highlightedyank'
-"Plug 'glippi/lognroll-vim'
-Plug 'glippi/lognroll-vim',  { 'branch': 'refactoring'}
+" My plugins
+Plug 'glippi/lognroll-vim'
+Plug 'glippi/markabbreviations-vim'
+Plug 'glippi/ydkjs-vim'
+Plug 'glippi/yarn-vim'
 call plug#end()
 
 runtime! partials/*.vim
