@@ -21,7 +21,10 @@ set splitbelow                                                                  
 set path+=**                                                                    "Allow recursive search
 set inccommand=nosplit                                                          "Show substitute changes immidiately in separate split
 set grepprg=ag\ --vimgrep                                                       "Use silver surfer for grepping
-set updatetime=500                                                              "Cursor hold timeout
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
+" always show signcolumns
+set signcolumn=yes
 set shortmess+=c                                                                "Disable completion menu messages in command line
 set undofile                                                                    "Keep undo history across sessions, by storing in file
 set noswapfile                                                                  "Disable creating swap file
