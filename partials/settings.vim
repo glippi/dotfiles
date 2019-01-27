@@ -6,7 +6,7 @@ set guicursor=a:blinkon500-blinkwait500-blinkoff500                             
 set cursorline                                                                  "Highlight current line
 set smartcase                                                                   "Smart case search if there is uppercase
 set ignorecase                                                                  "case insensitive search
-set mouse=nvi                                                                     "Enable mouse usage
+set mouse=nvi                                                                   "Enable mouse usage
 set showmatch                                                                   "Highlight matching bracket
 set nostartofline                                                               "Jump to first non-blank character
 set timeoutlen=1000 ttimeoutlen=0                                               "Reduce Command timeout for faster escape and O
@@ -21,10 +21,8 @@ set splitbelow                                                                  
 set path+=**                                                                    "Allow recursive search
 set inccommand=nosplit                                                          "Show substitute changes immidiately in separate split
 set grepprg=ag\ --vimgrep                                                       "Use silver surfer for grepping
-" Smaller updatetime for CursorHold & CursorHoldI
-set updatetime=300
-" always show signcolumns
-set signcolumn=yes
+set updatetime=300                                                              "Smaller updatetime for CursorHold & CursorHoldI
+set signcolumn=yes                                                              "Always show signcolumns
 set shortmess+=c                                                                "Disable completion menu messages in command line
 set undofile                                                                    "Keep undo history across sessions, by storing in file
 set noswapfile                                                                  "Disable creating swap file
