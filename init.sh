@@ -19,7 +19,7 @@ ln -sf ${wd}/partials/plugins.vim ~/.config/nvim/partials/plugins.vim
 ln -sf ${wd}/partials/mappings.vim ~/.config/nvim/partials/mappings.vim
 ln -sf ${wd}/partials/abbreviations.vim ~/.config/nvim/partials/abbreviations.vim
 ln -sf ${wd}/partials/statusline.vim ~/.config/nvim/partials/statusline.vim
-ln -sf ${wd}/partials/ale.vim ~/.config/nvim/partials/ale.vim
+ln -sf ${wd}/partials/coc.vim ~/.config/nvim/partials/coc.vim
 ln -sf ${wd}/partials/fzf.vim ~/.config/nvim/partials/fzf.vim
 ln -sf ${wd}/partials/functions.vim ~/.config/nvim/partials/functions.vim
 ln -sf ${wd}/partials/colorscheme.vim ~/.config/nvim/partials/colorscheme.vim
