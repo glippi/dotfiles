@@ -6,8 +6,6 @@ Plug 'morhetz/gruvbox'
 Plug 'mhartington/oceanic-next'
 "Close brackets
 Plug 'raimondi/delimitmate'
-"Asynchronous linting
-Plug 'w0rp/ale'
 "ReactJS JSX syntax highlighting
 Plug 'chemzqm/vim-jsx-improve'
 "Improved syntax for JavaScript
@@ -27,6 +25,8 @@ Plug 'rking/ag.vim'
 " syntax for TS
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'machakann/vim-highlightedyank'
+" Coc
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 " My plugins
 Plug 'glippi/lognroll-vim'
 Plug 'glippi/markabbreviations-vim'
