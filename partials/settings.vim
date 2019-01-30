@@ -12,7 +12,6 @@ set nostartofline                                                               
 set timeoutlen=1000 ttimeoutlen=0                                               "Reduce Command timeout for faster escape and O
 set wrap                                                                        "Enable word wrap
 set linebreak                                                                   "Wrap lines at convenient points
-set listchars=tab:>\ ,trail:·                                                   "Set trails for tabs and spaces
 set list                                                                        "Enable listchars
 set lazyredraw                                                                  "Do not redraw on registers and macros
 set hidden                                                                      "Hide buffers in background
