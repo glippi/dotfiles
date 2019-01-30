@@ -80,5 +80,6 @@ nnoremap <leader>v :vs<CR>
 nnoremap <leader>h :sp<CR>
 " create new file in the current directory
 nnoremap <leader>nf :e %:h/
-nnoremap <silent> <backspace> :nohlsearch<cr>
+" If statement check
+nmap !if yiwoif (!)<Esc>F!pA return nullremap <silent> <backspace> :nohlsearch<cr>
 let g:lognroll_vim#enable_insert_mode = 1
