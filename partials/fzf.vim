@@ -4,7 +4,7 @@ let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 " search files
 nnoremap <c-p> :Files<CR>
 " search buffers
-nnoremap <c-b> :Buffers<CR>
+nnoremap <leader>b :Buffers<CR>
 " search commits
 nnoremap <c-g> :Commits<CR>
 " search commits in current buffer
