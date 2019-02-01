@@ -25,8 +25,7 @@ Plug 'rking/ag.vim'
 " syntax for TS
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'machakann/vim-highlightedyank'
-" Coc
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'w0rp/ale'
 " My plugins
 Plug 'glippi/lognroll-vim'
 Plug 'glippi/markabbreviations-vim'

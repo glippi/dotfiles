@@ -23,5 +23,6 @@ ln -sf ${wd}/partials/coc.vim ~/.config/nvim/partials/coc.vim
 ln -sf ${wd}/partials/fzf.vim ~/.config/nvim/partials/fzf.vim
 ln -sf ${wd}/partials/functions.vim ~/.config/nvim/partials/functions.vim
 ln -sf ${wd}/partials/colorscheme.vim ~/.config/nvim/partials/colorscheme.vim
+ln -sf ${wd}/partials/ale.vim ~/.config/nvim/partials/ale.vim
 
 echo "-= Log out and Log Back In to see changes =-"
