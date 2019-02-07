@@ -31,6 +31,7 @@ Plug 'glippi/lognroll-vim'
 Plug 'glippi/markabbreviations-vim'
 Plug 'glippi/ydkjs-vim'
 Plug 'glippi/yarn-vim'
+Plug 'glippi/tachyons-vim'
 call plug#end()
 
 runtime! partials/*.vim
