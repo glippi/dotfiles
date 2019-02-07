@@ -2,6 +2,10 @@
 nnoremap j gj
 nnoremap k gk
 
+" Press j or k to turn off highlighting of last search
+nnoremap <silent> j :nohlsearch<CR>j
+nnoremap <silent> k :nohlsearch<CR>k
+
 " Map for Escape key
 inoremap jk <Esc>
 tnoremap <Esc> <C-\><C-n>
@@ -81,5 +85,5 @@ nnoremap <leader>h :sp<CR>
 " create new file in the current directory
 nnoremap <leader>nf :e %:h/
 " If statement check
-nmap !if yiwoif (!)<Esc>F!pA return nullremap <silent> <backspace> :nohlsearch<cr>
+nmap !if yiwoif (!)<Esc>F!pA return null
 let g:lognroll_vim#enable_insert_mode = 1
