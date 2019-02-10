@@ -87,3 +87,4 @@ nnoremap <leader>nf :e %:h/
 " If statement check
 nmap !if yiwoif (!)<Esc>F!pA return null
 let g:lognroll_vim#enable_insert_mode = 1
+let g:tachyons_vim_css = 0
