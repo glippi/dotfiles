@@ -1,8 +1,11 @@
 call plug#begin('~/.config/nvim/plugged')
+"Kotlin syntax
+Plug 'udalov/kotlin-vim'
 "Colorscheme
 Plug 'jeffkreeftmeijer/vim-dim'
 Plug 'fenetikm/falcon'
 Plug 'morhetz/gruvbox'
+Plug 'LuRsT/austere.vim'
 Plug 'mhartington/oceanic-next'
 "Close brackets
 Plug 'raimondi/delimitmate'
@@ -13,12 +16,13 @@ Plug 'othree/yajs.vim'
 "Customized vim status line
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"Git in vim
+"tpope plugins
 Plug 'tpope/vim-fugitive'
-" Surround motion
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-classpath'
+Plug 'tpope/vim-apathy'
 "FuzzyFinder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 "AG SilverSurfer
 Plug 'rking/ag.vim'
@@ -31,7 +35,7 @@ Plug 'glippi/lognroll-vim'
 Plug 'glippi/markabbreviations-vim'
 Plug 'glippi/ydkjs-vim'
 Plug 'glippi/yarn-vim'
-Plug 'glippi/tachyons-vim'
+Plug 'glippi/tachyons-vim', { 'do': 'sh install.sh' }
 call plug#end()
 
 runtime! partials/*.vim
