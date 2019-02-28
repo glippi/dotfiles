@@ -17,7 +17,6 @@ set lazyredraw                                                                  
 set hidden                                                                      "Hide buffers in background
 set splitright                                                                  "Set up new vertical splits positions
 set splitbelow                                                                  "Set up new horizontal splits positions
-set path+=**                                                                    "Allow recursive search
 set inccommand=nosplit                                                          "Show substitute changes immidiately in separate split
 set grepprg=ag\ --vimgrep                                                       "Use silver surfer for grepping
 set updatetime=300                                                              "Smaller updatetime for CursorHold & CursorHoldI
