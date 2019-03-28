@@ -1,10 +1,19 @@
-highlight ALEWarning ctermbg=DarkMagenta
-highlight ALEError ctermbg=Red
-highlight ALEErrorSign ctermfg=9
-let g:ale_sign_error = '⤫'
-let g:ale_sign_warning = '*'
-" Custom error format
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+nnoremap <F8> :Dispatch yarn start<CR>
+nnoremap <F10> :Dispatch<CR>
+nnoremap <F12> :Dispatch yarn watch<CR>
+nmap !if yiwoif (!)<Esc>F!pA return null
+
+function! LoadMainNodeModule(fname)
+    let nodeModules = "./node_modules/"
+    let packageJsonPath = nodeModules . a:fname . "/package.json"
+
+    if filereadable(packageJsonPath)
+        return nodeModules . a:fname . "/" . json_decode(join(readfile(packageJsonPath))).main
+    else
+        return nodeModules . a:fname
+    endif
+endfunction
+
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['eslint', 'prettier'],
@@ -17,14 +26,6 @@ let g:ale_linters = {
 \}
 " ignore tslint
 let g:ale_linters_ignore = {'typescript': ['tslint']}
-" Don't lint on text change, only on save
-let g:ale_lint_on_text_changed = 0
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_enter = 1
-" Set this variable to 1 to fix files when you save them.
-let g:ale_fix_on_save = 1
-let g:ale_completion_enabled = 1
-let g:airline#extensions#ale#enabled = 1
 noremap <c-]> :ALEGoToDefinition<CR>
 noremap <Leader>af :ALEFix<CR>
 noremap <Leader>ar :ALEFindReferences<CR>

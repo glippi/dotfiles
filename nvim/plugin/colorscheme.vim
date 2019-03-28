@@ -2,5 +2,4 @@ set termguicolors                                                               
 set background=dark
 set synmaxcol=300                                                               "Use syntax highlighting only for 300 columns
 
-
-silent! colorscheme austere
+silent! colorscheme falcon

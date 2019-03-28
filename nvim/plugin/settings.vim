@@ -53,3 +53,6 @@ set nottimeout
 set cmdheight=2
 "  just pasting a whole buffer of text
 set pastetoggle=<F2>
+
+set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
+set completefunc=emoji#complete
