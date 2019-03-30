@@ -43,8 +43,10 @@ Plug 'rking/ag.vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'w0rp/ale'
+Plug 'natebosch/vim-lsc'
+
 "Java
-Plug 'artur-shaik/vim-javacomplete2'
+"Plug 'artur-shaik/vim-javacomplete2'
 " My plugins
 Plug 'glippi/lognroll-vim'
 Plug 'glippi/markabbreviations-vim'
