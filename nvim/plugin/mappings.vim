@@ -60,12 +60,8 @@ nnoremap <leader>nf :e %:h/
 let g:lognroll_vim#enable_insert_mode = 1
 let g:tachyons_vim_css = 0
 
-"set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
 map <F9> :Make!<CR>
 
 nnoremap <Leader>x :<C-U>call StripTrailingWhitespace()<CR>
 
-"/home/gabriele/java-language-server/java-language-server/dist/mac/bin/launcher --quiet" 
-let g:lsc_server_commands = {'java': '/home/gabriele/java-language-server/dist/mac/bin/launcher --quiet'}
-let g:lsc_auto_map = v:true
-let g:lsc_trace_level = "verbose"
+set completefunc=emoji#complete
