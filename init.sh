@@ -16,6 +16,9 @@ ln -sf ${wd}/zshrc ~/.zshrc
 echo "-= Symlinking tmux configs =-"
 ln -sf ${wd}/tmux.conf ~/.tmux.conf
 
+echo "-= Symlinking ideavimrc configs =-"
+ln -sf ${wd}/ideavimrc ~/.ideavimrc
+
 echo "-= Symlinking javascript git template =-"
 ln -sf ${wd}/javascript-git-ignore-template ~/.javascript-git-ignore-template
 
