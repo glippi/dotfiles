@@ -5,7 +5,6 @@ Plug 'udalov/kotlin-vim'
 Plug 'guns/vim-clojure-highlight'
 Plug 'guns/vim-clojure-static'
 Plug 'guns/vim-sexp'
-Plug 'tpope/vim-sexp-mappings-for-regular-people'
 "Colorscheme
 Plug 'vim-scripts/bw.vim'
 Plug 'jeffkreeftmeijer/vim-dim'
@@ -20,17 +19,14 @@ Plug 'raimondi/delimitmate'
 Plug 'chemzqm/vim-jsx-improve'
 "Improved syntax for JavaScript
 Plug 'othree/yajs.vim'
-"Customized vim status line
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
+
 "tpope plugins
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-classpath'
-Plug 'tpope/vim-apathy'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-salve'
+Plug 'tpope/vim-classpath'
 
 "FuzzyFinder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -39,14 +35,13 @@ Plug 'junegunn/vim-emoji'
 
 "AG SilverSurfer
 Plug 'rking/ag.vim'
+
 " syntax for TS
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'w0rp/ale'
 Plug 'natebosch/vim-lsc'
 
-"Java
-"Plug 'artur-shaik/vim-javacomplete2'
 " My plugins
 Plug 'glippi/lognroll-vim'
 Plug 'glippi/markabbreviations-vim'
