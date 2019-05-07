@@ -65,3 +65,9 @@ map <F9> :Make!<CR>
 nnoremap <Leader>x :<C-U>call StripTrailingWhitespace()<CR>
 
 set completefunc=emoji#complete
+let g:lsc_server_commands = {'java': '/home/gabriele/java-language-server/dist/mac/bin/launcher --quiet'}
+let g:lsc_trace_level = "verbose"
+let g:lsc_auto_map = v:true
+
+
+nnoremap <F1> :Ex<CR>
