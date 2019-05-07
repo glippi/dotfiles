@@ -23,7 +23,18 @@ iabbrev lix Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer di
 
 " React
 iabbrev ire import React from 'react'
-iabbrev erc import React from 'react' <CR><CR>export default class <esc>i extends React.Component {<CR>  render() {<CR>  return (<CR>)<CR>}<CR>}<esc>5k^eeea
+
+" Export Default Class Component
+iabbrev edc> import React, { Component } from 'react' <CR><CR>export default class <esc>i extends Component {<CR>  render() {<CR>  return (<CR>)<CR>}<CR>}<esc>5k^eeea
+
+" Export Class Component
+iabbrev ec> import React, { Component } from 'react' <CR><CR>export class <esc>i extends Component {<CR>  render() {<CR>  return (<CR>)<CR>}<CR>}<esc>5k^eea
+
+" Export Default Functional Component
+iabbrev edf> import React from 'react' <CR><CR>export default function <esc>i (){<CR>  return (<CR>)<CR>}<esc>5k^eeea
+
+" Export Functional Component
+iabbrev ef> import React from 'react' <CR><CR>export function <esc>i (){<CR>  return (<CR>)<CR>}<esc>5k^eea
 
 " Mobx-react
 iabbrev injob import { inject, observer } from 'mobx-react'
