@@ -7,7 +7,7 @@ Plug 'morhetz/gruvbox'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'chemzqm/vim-jsx-improve'
 Plug 'othree/yajs.vim'
-
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 
 "clojure
 Plug 'guns/vim-clojure-highlight'
@@ -24,9 +24,9 @@ Plug 'udalov/kotlin-vim'
 Plug 'raimondi/delimitmate'
 Plug 'machakann/vim-highlightedyank'
 Plug 'rking/ag.vim'
-Plug 'zweifisch/pipe2eval'
 "Plug 'w0rp/ale'
 Plug 'natebosch/vim-lsc'
+Plug 'jpalardy/vim-slime'
 
 "fuzzyfinder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
