@@ -56,7 +56,8 @@ nnoremap <leader>v :vs<CR>
 nnoremap <leader>h :sp<CR>
 " create new file in the current directory
 nnoremap <leader>nf :e %:h/
-" If statement check
+nnoremap <F1> :Ex<CR>
+nnoremap <leader>r :e!<CR>
 let g:lognroll_vim#enable_insert_mode = 1
 let g:tachyons_vim_css = 0
 
@@ -69,5 +70,4 @@ let g:lsc_server_commands = {'java': '/home/gabriele/java-language-server/dist/m
 let g:lsc_trace_level = "verbose"
 let g:lsc_auto_map = v:true
 
-
-nnoremap <F1> :Ex<CR>
+let g:slime_target = "neovim"
