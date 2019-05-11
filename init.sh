@@ -45,6 +45,7 @@ ln -sf ${wd}/nvim/ftplugin/clojure.vim ~/.config/nvim/ftplugin/clojure.vim
 ln -sf ${wd}/nvim/ftplugin/javascript.vim ~/.config/nvim/ftplugin/javascript.vim
 ln -sf ${wd}/nvim/ftplugin/java.vim ~/.config/nvim/ftplugin/java.vim
 ln -sf ${wd}/nvim/ftplugin/typescript.vim ~/.config/nvim/ftplugin/typescript.vim
+ln -sf ${wd}/nvim/ftplugin/markdown.vim ~/.config/nvim/ftplugin/markdown.vim
 
 echo "-= Symlinking nvim/compiler =-"
 ln -sf ${wd}/nvim/compiler/java.vim ~/.config/nvim/compiler/java.vim
@@ -53,6 +54,7 @@ ln -sf ${wd}/nvim/compiler/clojure.vim ~/.config/nvim/compiler/clojure.vim
 
 echo "-= Symlinking nvim/after/ftplugin =-"
 ln -sf ${wd}/nvim/after/ftplugin/javascript.vim ~/.config/nvim/after/ftplugin/javascript.vim
+ln -sf ${wd}/nvim/after/ftplugin/typescript.vim ~/.config/nvim/after/ftplugin/typescript.vim
 ln -sf ${wd}/nvim/after/ftplugin/clojure.vim ~/.config/nvim/after/ftplugin/clojure.vim
 
 echo "-= Log out and Log Back In to see changes =-"
