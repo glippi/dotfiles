@@ -29,6 +29,8 @@ source $ZSH/oh-my-zsh.sh
 alias gti="git"
 alias vi="nvim"
 alias ys="yarn start"
+alias yt="yarn test"
+alias ytv="yarn test --verbose"
 alias cc="clear"
 alias t="touch"
 alias gi="git init && cat ~/.javascript-git-ignore-template >> .gitignore"
