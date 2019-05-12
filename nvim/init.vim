@@ -4,7 +4,7 @@ Plug 'fenetikm/falcon'
 Plug 'morhetz/gruvbox'
 
 "JS/TS
-Plug 'HerringtonDarkholme/yats.vim'
+Plug 'leafgarland/typescript-vim'
 Plug 'chemzqm/vim-jsx-improve'
 Plug 'othree/yajs.vim'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
