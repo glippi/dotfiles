@@ -71,3 +71,7 @@ let g:lsc_trace_level = "verbose"
 let g:lsc_auto_map = v:true
 
 let g:slime_target = "neovim"
+let g:slime_no_mappings = 1
+xmap ccp <Plug>SlimeRegionSend
+nmap ccp <Plug>SlimeParagraphSend
+nmap <c-c>v     <Plug>SlimeConfig
