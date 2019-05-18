@@ -18,7 +18,6 @@ set hidden                                                                      
 set splitright                                                                  "Set up new vertical splits positions
 set splitbelow                                                                  "Set up new horizontal splits positions
 set inccommand=nosplit                                                          "Show substitute changes immidiately in separate split
-set grepprg=ag\ --vimgrep                                                       "Use silver surfer for grepping
 set updatetime=300                                                              "Smaller updatetime for CursorHold & CursorHoldI
 set signcolumn=yes                                                              "Always show signcolumns
 set shortmess+=c                                                                "Disable completion menu messages in command line
