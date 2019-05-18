@@ -36,7 +36,9 @@ set sidescrolloff=15
 set sidescroll=5
 
 
-set wildignore=**/node_modules/**
+" configs from vim-bootstrap
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__,node_modules,.idea,.gradle,gradle
 " Insert spaces when TAB is pressed.
 set expandtab
 " Yank and paste with the system clipboard
