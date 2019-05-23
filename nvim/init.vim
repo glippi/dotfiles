@@ -7,6 +7,7 @@ Plug 'morhetz/gruvbox'
 Plug 'leafgarland/typescript-vim'
 Plug 'chemzqm/vim-jsx-improve'
 Plug 'othree/yajs.vim'
+Plug 'othree/es.next.syntax.vim'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 
 "clojure
