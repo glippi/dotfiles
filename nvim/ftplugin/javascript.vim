@@ -26,12 +26,16 @@ iabbrev edf> import React from 'react' <CR><CR>export default function <C-R>=exp
 iabbrev ef> import React from 'react' <CR><CR>export function <C-R>=expand('%:t:r')<CR> (){<CR>  return (<CR>)<CR>}<esc>5k^eea
 
 " Mobx-react
-iabbrev injob import { inject, observer } from 'mobx-react'
-iabbrev io @inject('')<CR>@observer<esc>1k^f'a
+iabbrev injob> import { inject, observer } from 'mobx-react'
+iabbrev io> @inject('')<CR>@observer<esc>1k^f'a
 
 " flex
-iabbrev flow flex flex-row
-iabbrev floc flex flex-column
+iabbrev flow> flex flex-row
+iabbrev floc> flex flex-column
 
 " Debugger
-iabbrev dbg debugger
+iabbrev db> debugger
+
+"Test
+iabbrev describe> describe('', () => {<CR><space><space>test('', () => {<CR><space><space>});<CR>});
+iabbrev test> test('', () => {<CR>});
