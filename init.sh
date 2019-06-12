@@ -57,4 +57,7 @@ ln -sf ${wd}/nvim/after/ftplugin/javascript.vim ~/.config/nvim/after/ftplugin/ja
 ln -sf ${wd}/nvim/after/ftplugin/typescript.vim ~/.config/nvim/after/ftplugin/typescript.vim
 ln -sf ${wd}/nvim/after/ftplugin/clojure.vim ~/.config/nvim/after/ftplugin/clojure.vim
 
+echo "-= Symlinking nvim/after/ftdetect =-"
+ln -sf ${wd}/nvim/after/ftdetect/javascript.test.vim ~/.config/nvim/after/ftdetect/javascript.test.vim
+
 echo "-= Log out and Log Back In to see changes =-"
