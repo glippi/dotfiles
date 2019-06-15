@@ -8,6 +8,8 @@ export JAVA_HOME=/usr/lib/jvm/jdk-11.0.2
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=${PATH}:${JAVA_HOME}/bin
 #export CLASSPATH=$JUNIT_HOME/junit.jar:/myproject/classes:/myproject/lib/something.jar
+#go
+export PATH=$PATH:/usr/local/go/bin
 export ZSH=$HOME/.oh-my-zsh
 export UPDATE_ZSH_DAYS=30
 export SSH_KEY_PATH="~/.ssh/rsa_id"
