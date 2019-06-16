@@ -21,6 +21,9 @@ Plug 'tpope/vim-salve'
 "kotlin
 Plug 'udalov/kotlin-vim'
 
+"go
+Plug 'fatih/vim-go'
+
 "utilities
 Plug 'raimondi/delimitmate'
 Plug 'machakann/vim-highlightedyank'
@@ -34,7 +37,6 @@ Plug 'jpalardy/vim-slime'
 "fuzzyfinder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-emoji'
 
 "tpope others
 Plug 'tpope/vim-fugitive'
