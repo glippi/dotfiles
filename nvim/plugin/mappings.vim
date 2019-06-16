@@ -13,12 +13,6 @@ tnoremap <Esc> <C-\><C-n>
 " Yank to the end of the line
 nnoremap Y y$
 
-" Paste from system clipboard with Ctrl + v
-inoremap <C-v> <Esc>"+p
-nnoremap <Leader>p "0p
-vnoremap <Leader>p "0p
-nnoremap <Leader>h viw"0p
-
 " Move to the end of yanked text after yank and paste
 nnoremap p p`]
 vnoremap y y`]
@@ -28,7 +22,7 @@ vnoremap p p`]
 map Q <Nop>
 
 "open a split with terminal
-noremap <Leader>ss :vsplit <CR>:term<CR>i
+noremap <Leader>sh :vsplit <CR>:term<CR>i
 
 " create a new tab and open a terminal window in insert mode
 nnoremap <leader>tt :tabnew<esc>:terminal<CR>i
@@ -64,11 +58,6 @@ let g:tachyons_vim_css = 0
 map <F9> :Make!<CR>
 
 nnoremap <Leader>x :<C-U>call StripTrailingWhitespace()<CR>
-
-set completefunc=emoji#complete
-let g:lsc_server_commands = {'java': '/home/gabriele/java-language-server/dist/mac/bin/launcher --quiet'}
-let g:lsc_trace_level = "verbose"
-let g:lsc_auto_map = v:true
 
 let g:slime_target = "neovim"
 let g:slime_no_mappings = 1

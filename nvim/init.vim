@@ -31,7 +31,6 @@ Plug 'rking/ag.vim'
 Plug 'triglav/vim-visual-increment'
 
 "Plug 'w0rp/ale'
-Plug 'natebosch/vim-lsc'
 Plug 'jpalardy/vim-slime'
 
 "fuzzyfinder
