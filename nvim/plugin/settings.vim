@@ -1,7 +1,6 @@
 set title                                                                       "change the terminal's title
 set number                                                                      "Line numbers are good
 set relativenumber                                                              "Show numbers relative to current line
-set guicursor=a:blinkon500-blinkwait500-blinkoff500                             "Set cursor blinking rate
 set cursorline                                                                  "Highlight current line
 set smartcase                                                                   "Smart case search if there is uppercase
 set ignorecase                                                                  "case insensitive search
@@ -24,17 +23,10 @@ set undofile                                                                    
 set noswapfile                                                                  "Disable creating swap file
 set nobackup                                                                    "Disable saving backup file
 set nowritebackup                                                               "Disable writing backup file
-
 set breakindent                                                                 "Preserve indent on line wrap
 set smartindent                                                                 "Use smarter indenting
 set nofoldenable                                                                "Disable folding by default
 set foldmethod=syntax                                                           "When folding enabled, use syntax method
-
-set scrolloff=8                                                                 "Start scrolling when we're 8 lines away from margins
-set sidescrolloff=15
-set sidescroll=5
-
-
 " configs from vim-bootstrap
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__,node_modules,.idea,.gradle,gradle
@@ -44,7 +36,6 @@ set expandtab
 set clipboard=unnamedplus
 " Change number of spaces that a <Tab> counts for during editing ops
 set softtabstop=2
-
 " Indentation amount for < and > commands.
 set shiftwidth=2
 set matchtime=10000
@@ -53,6 +44,4 @@ set nottimeout
 set cmdheight=2
 "  just pasting a whole buffer of text
 set pastetoggle=<F2>
-
 set statusline=%-t\ %=%p%%\ %05l,%04v
-set completefunc=emoji#complete
