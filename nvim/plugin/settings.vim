@@ -1,7 +1,6 @@
 set title                                                                       "change the terminal's title
 set number                                                                      "Line numbers are good
 set relativenumber                                                              "Show numbers relative to current line
-set gdefault                                                                    "Set global flag for search and replace
 set guicursor=a:blinkon500-blinkwait500-blinkoff500                             "Set cursor blinking rate
 set cursorline                                                                  "Highlight current line
 set smartcase                                                                   "Smart case search if there is uppercase
@@ -55,5 +54,5 @@ set cmdheight=2
 "  just pasting a whole buffer of text
 set pastetoggle=<F2>
 
-set statusline=%-t\ %=%p%%\ %04l,%04v
+set statusline=%-t\ %=%p%%\ %05l,%04v
 set completefunc=emoji#complete
