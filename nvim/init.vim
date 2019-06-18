@@ -24,13 +24,16 @@ Plug 'udalov/kotlin-vim'
 "go
 Plug 'fatih/vim-go'
 
+"elixir
+Plug 'elixir-editors/vim-elixir'
+
 "utilities
 Plug 'raimondi/delimitmate'
 Plug 'machakann/vim-highlightedyank'
 Plug 'rking/ag.vim'
 Plug 'triglav/vim-visual-increment'
 
-"Plug 'w0rp/ale'
+"repl
 Plug 'jpalardy/vim-slime'
 
 "fuzzyfinder
