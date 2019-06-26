@@ -11,7 +11,7 @@ nnoremap <leader>cf yaw:e src/<C-r>"<left>.js<CR>iec><C-]>
 nnoremap <leader>/ ^i//<space><C-c>
 
 " React
-iabbrev ire import React from 'react'
+iabbrev ire import React from 'react';
 
 " Export Default Class Component
 iabbrev edc> import React, { Component } from 'react' <CR><CR>export default class <C-R>=expand('%:t:r')<CR> extends Component {<CR>  render() {<CR>  return (<CR>)<CR>}<CR>}<esc>5k^eeea
