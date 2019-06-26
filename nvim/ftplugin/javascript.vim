@@ -37,5 +37,5 @@ iabbrev floc> flex flex-column
 iabbrev db> debugger
 
 "Test
-iabbrev describe> describe('', () => {<CR><space><space>test('', () => {<CR><space><space>});<CR>});
+iabbrev describe> describe('', () => {<CR><space><space>test('', () => {<CR><space>});<CR>});
 iabbrev test> test('', () => {<CR>});
