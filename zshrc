@@ -9,6 +9,8 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=${PATH}:${JAVA_HOME}/bin
 #export CLASSPATH=$JUNIT_HOME/junit.jar:/myproject/classes:/myproject/lib/something.jar
 #go
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/usr/local/go/bin
 export ZSH=$HOME/.oh-my-zsh
 export UPDATE_ZSH_DAYS=30
@@ -36,6 +38,7 @@ alias ytv="yarn test --verbose"
 alias cc="clear"
 alias t="touch"
 alias gi="git init && cat ~/.javascript-git-ignore-template >> .gitignore"
+alias xx="exit"
 
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
