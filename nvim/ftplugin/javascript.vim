@@ -10,6 +10,9 @@ nnoremap <leader>rpl :te<CR>inode<esc>:echo b:terminal_job_id
 nnoremap <leader>cf yaw:e src/<C-r>"<left>.js<CR>iec><C-]>
 nnoremap <leader>/ ^i//<space><C-c>
 
+" Import
+iabbrev im> import X from ''<esc>FXcw
+
 " React
 iabbrev ire import React from 'react';
 
