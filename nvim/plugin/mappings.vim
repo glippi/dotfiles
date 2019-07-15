@@ -2,10 +2,6 @@
 nnoremap j gj
 nnoremap k gk
 
-" Press j or k to turn off highlighting of last search
-nnoremap <silent> j :nohlsearch<CR>j
-nnoremap <silent> k :nohlsearch<CR>k
-
 " Map for Escape key
 inoremap jk <Esc>
 tnoremap <Esc> <C-\><C-n>
