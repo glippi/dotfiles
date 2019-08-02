@@ -35,4 +35,6 @@ nnoremap <leader>r :e!<CR>
 " stripe whitespace
 nnoremap <Leader>x :<C-U>call StripTrailingWhitespace()<CR>
 " remove highilight
-nnoremap <Leader>nl :nohlsearch
+nnoremap <Leader>nh :nohlsearch
+" format code
+nnoremap <Leader>ff :gg=G
