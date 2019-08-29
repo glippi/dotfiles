@@ -37,4 +37,8 @@ nnoremap <Leader>x :<C-U>call StripTrailingWhitespace()<CR>
 " remove highilight
 nnoremap <Leader>nh :nohlsearch
 " format code
-nnoremap <Leader>ff :gg=G
+nnoremap <Leader>ff <esc>gg=G
+" open new window with terminal and start python server to serve html files
+nnoremap <Leader>shp <esc>:vsplit<enter><esc>:te<enter>ipython -m SimpleHTTPServer 8000<enter>
+" remove warning for go plugin
+let g:go_version_warning = 0
