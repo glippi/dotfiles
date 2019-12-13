@@ -8,7 +8,7 @@ rm -rf ~/.zshrc ~/.vim ~/.vimrc ~/.config/nvim/ ~/.tmux ~/.tmux.conf ~/.javascri
 
 #create neovim directory
 echo "-= Creating necessary directories =-"
-mkdir -p ~/.config/nvim ~/.config/nvim/plugin ~/.config/nvim/plugin ~/.config/nvim/ftplugin ~/.config/nvim/after/ftplugin ~/.config/nvim/compiler
+mkdir -p ~/.config/nvim ~/.config/nvim/plugin ~/.config/nvim/plugin ~/.config/nvim/ftplugin ~/.config/nvim/after/ftplugin ~/.config/nvim/after/ftdetect ~/.config/nvim/compiler
 
 echo "-= Symlinking zsrh configs =-"
 ln -sf ${wd}/zshrc ~/.zshrc
