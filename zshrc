@@ -2,7 +2,6 @@ autoload colors zsh/terminfo
 colors
 setopt auto_cd
 setopt correctall
-alias git status='nocorrect git status'
 
 export JAVA_HOME=/usr/lib/jvm/jdk-11.0.2
 export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -35,9 +34,7 @@ alias ys="yarn start"
 alias yt="yarn test"
 alias ytv="yarn test --verbose"
 alias t="touch"
-alias gi="git init && cat ~/.javascript-git-ignore-template >> .gitignore"
 alias xx="exit"
-alias "rm node_modules"="rm -rf node_modules"
 
 hex_to_rgb() {
     # Usage: hex_to_rgb "#FFFFFF"
@@ -60,16 +57,6 @@ if [ "$TMUX" = "" ]; then tmux; fi
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/gabriele/.sdkman"
 [[ -s "/home/gabriele/.sdkman/bin/sdkman-init.sh" ]] && source "/home/gabriele/.sdkman/bin/sdkman-init.sh"
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /home/gabriele/Templates/CODURANCE/merlin-serverless/authentication-lambda/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/gabriele/Templates/CODURANCE/merlin-serverless/authentication-lambda/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /home/gabriele/Templates/CODURANCE/merlin-serverless/authentication-lambda/node_modules/tabtab/.completions/sls.zsh ]] && . /home/gabriele/Templates/CODURANCE/merlin-serverless/authentication-lambda/node_modules/tabtab/.completions/sls.zsh
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /home/gabriele/Templates/CODURANCE/merlin-serverless/authentication-lambda/node_modules/tabtab/.completions/slss.zsh ]] && . /home/gabriele/Templates/CODURANCE/merlin-serverless/authentication-lambda/node_modules/tabtab/.completions/slss.zsh
 
 if [ -d "$HOME/adb-fastboot/platform-tools" ] ; then
  export PATH="$HOME/adb-fastboot/platform-tools:$PATH"
