@@ -10,7 +10,14 @@ Plug 'othree/yajs.vim'
 Plug 'othree/es.next.syntax.vim'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 
-"clojure
+"Elm
+Plug 'carmonw/elm-vim' "elm 0.19
+
+"PHP
+Plug 'StanAngeloff/php.vim'
+Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
+
+"Clojure
 Plug 'guns/vim-clojure-highlight'
 Plug 'guns/vim-clojure-static'
 Plug 'guns/vim-sexp'
@@ -18,13 +25,13 @@ Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-salve'
 
-"kotlin
+"Kotlin
 Plug 'udalov/kotlin-vim'
 
-"go
+"Go
 Plug 'fatih/vim-go'
 
-"elixir
+"Elixir
 Plug 'elixir-editors/vim-elixir'
 
 "utilities
