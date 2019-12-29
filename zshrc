@@ -38,7 +38,6 @@ alias t="touch"
 alias gi="git init && cat ~/.javascript-git-ignore-template >> .gitignore"
 alias xx="exit"
 alias "rm node_modules"="rm -rf node_modules"
-alias nrd ="npm run dev"
 
 hex_to_rgb() {
     # Usage: hex_to_rgb "#FFFFFF"
