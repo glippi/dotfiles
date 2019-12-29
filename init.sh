@@ -45,6 +45,7 @@ ln -sf ${wd}/nvim/ftplugin/javascript.vim ~/.config/nvim/ftplugin/javascript.vim
 ln -sf ${wd}/nvim/ftplugin/java.vim ~/.config/nvim/ftplugin/java.vim
 ln -sf ${wd}/nvim/ftplugin/typescript.vim ~/.config/nvim/ftplugin/typescript.vim
 ln -sf ${wd}/nvim/ftplugin/markdown.vim ~/.config/nvim/ftplugin/markdown.vim
+ln -sf ${wd}/nvim/ftplugin/php.vim ~/.config/nvim/ftplugin/php.vim
 
 echo "-= Symlinking nvim/compiler =-"
 ln -sf ${wd}/nvim/compiler/java.vim ~/.config/nvim/compiler/java.vim
