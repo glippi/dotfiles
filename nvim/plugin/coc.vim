@@ -1,3 +1,7 @@
+" Use this variable to set the path to node; useful in case you are using nvm
+" to install node
+let g:coc_node_path = "/home/gabriele/.nvm/versions/node/v13.3.0/bin/node"
+
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
