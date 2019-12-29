@@ -12,7 +12,7 @@ nnoremap <leader>cf yaw:e src/<C-r>"<left>.js<CR>iec><C-]>
 nnoremap <leader>/ ^i//<space><C-c>
 
 " Require
-iabbrev req> const R = require('R')<esc>FR/*cgn
+iabbrev req> const CHANGEREQ = require('CHANGEREQ')<esc>:%s/CHANGEREQ/
 
 " Import
 iabbrev im> import X from ''<esc>FXcw
