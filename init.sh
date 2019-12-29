@@ -24,20 +24,22 @@ ln -sf ${wd}/javascript-git-ignore-template ~/.javascript-git-ignore-template
 
 echo "-= Symlinking neovim configs =-"
 ln -sf ${wd}/nvim/init.vim ~/.config/nvim/init.vim
-ln -sf ${wd}/nvim/plugin/settings.vim ~/.config/nvim/plugin/settings.vim
-ln -sf ${wd}/nvim/plugin/plugins.vim ~/.config/nvim/plugin/plugins.vim
-ln -sf ${wd}/nvim/plugin/mappings.vim ~/.config/nvim/plugin/mappings.vim
-ln -sf ${wd}/nvim/plugin/abbreviations.vim ~/.config/nvim/plugin/abbreviations.vim
-ln -sf ${wd}/nvim/plugin/statusline.vim ~/.config/nvim/plugin/statusline.vim
-ln -sf ${wd}/nvim/plugin/coc.vim ~/.config/nvim/plugin/coc.vim
-ln -sf ${wd}/nvim/plugin/fzf.vim ~/.config/nvim/plugin/fzf.vim
-ln -sf ${wd}/nvim/plugin/functions.vim ~/.config/nvim/plugin/functions.vim
-ln -sf ${wd}/nvim/plugin/colorscheme.vim ~/.config/nvim/plugin/colorscheme.vim
-ln -sf ${wd}/nvim/plugin/ale.vim ~/.config/nvim/plugin/ale.vim
-ln -sf ${wd}/nvim/plugin/gruvbox.vim ~/.config/nvim/plugin/gruvbox.vim
 
 echo "-= Symlinking nvim/plugin =-"
+ln -sf ${wd}/nvim/plugin/abbreviations.vim ~/.config/nvim/plugin/abbreviations.vim
+ln -sf ${wd}/nvim/plugin/ale.vim ~/.config/nvim/plugin/ale.vim
+ln -sf ${wd}/nvim/plugin/coc.vim ~/.config/nvim/plugin/coc.vim
+ln -sf ${wd}/nvim/plugin/colorscheme.vim ~/.config/nvim/plugin/colorscheme.vim
+ln -sf ${wd}/nvim/plugin/fugitive.vim ~/.config/nvim/plugin/fugitive.vim
+ln -sf ${wd}/nvim/plugin/fzf.vim ~/.config/nvim/plugin/fzf.vim
+ln -sf ${wd}/nvim/plugin/gruvbox.vim ~/.config/nvim/plugin/gruvbox.vim
+ln -sf ${wd}/nvim/plugin/lognroll.vim ~/.config/nvim/plugin/lognroll.vim
+ln -sf ${wd}/nvim/plugin/mappings.vim ~/.config/nvim/plugin/mappings.vim
+ln -sf ${wd}/nvim/plugin/settings.vim ~/.config/nvim/plugin/settings.vim
+ln -sf ${wd}/nvim/plugin/slime.vim ~/.config/nvim/plugin/slime.vim
 ln -sf ${wd}/nvim/plugin/strip_trailing_whitespace.vim ~/.config/nvim/plugin/strip_trailing_whitespace.vim
+ln -sf ${wd}/nvim/plugin/tachyons.vim ~/.config/nvim/plugin/tachyons.vim
+
 
 echo "-= Symlinking nvim/ftplugin =-"
 ln -sf ${wd}/nvim/ftplugin/txt.vim ~/.config/nvim/ftplugin/txt.vim
