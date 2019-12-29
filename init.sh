@@ -4,7 +4,7 @@ wd=$(pwd)
 echo ${wd}
 
 echo "-= Removing any existing configs =-"
-rm -rf ~/.zshrc ~/.vim ~/.vimrc ~/.config/nvim/ ~/.tmux ~/.tmux.conf ~/.javascript-git-ignore-template 2 > /dev/null
+rm -rf ~/.zshrc ~/.vim ~/.vimrc ~/.config/nvim/ ~/.tmux ~/.tmux.conf 2 > /dev/null
 
 #create neovim directory
 echo "-= Creating necessary directories =-"
@@ -18,9 +18,6 @@ ln -sf ${wd}/tmux.conf ~/.tmux.conf
 
 echo "-= Symlinking ideavimrc configs =-"
 ln -sf ${wd}/ideavimrc ~/.ideavimrc
-
-echo "-= Symlinking javascript git template =-"
-ln -sf ${wd}/javascript-git-ignore-template ~/.javascript-git-ignore-template
 
 echo "-= Symlinking neovim configs =-"
 ln -sf ${wd}/nvim/init.vim ~/.config/nvim/init.vim
