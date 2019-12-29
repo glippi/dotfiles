@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead *.svelte, set syntax=html
+autocmd BufNewFile,BufRead *.svelte, set ft=html
