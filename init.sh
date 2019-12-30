@@ -8,7 +8,7 @@ rm -rf ~/.zshrc ~/.vim ~/.vimrc ~/.config/nvim/ ~/.tmux ~/.tmux.conf 2 > /dev/nu
 
 #create neovim directory
 echo "-= Creating necessary directories =-"
-mkdir -p ~/.config/nvim ~/.config/nvim/plugin ~/.config/nvim/plugin ~/.config/nvim/ftplugin ~/.config/nvim/after/ftplugin ~/.config/nvim/after/ftdetect ~/.config/nvim/compiler
+mkdir -p ~/.config/nvim ~/.config/nvim/plugin ~/.config/nvim/plugin ~/.config/nvim/ftplugin ~/.config/nvim/ftdetect ~/.config/nvim/after/ftplugin ~/.config/nvim/after/ftdetect ~/.config/nvim/compiler
 
 echo "-= Symlinking zsrh configs =-"
 ln -sf ${wd}/zshrc ~/.zshrc
@@ -46,6 +46,9 @@ ln -sf ${wd}/nvim/ftplugin/java.vim ~/.config/nvim/ftplugin/java.vim
 ln -sf ${wd}/nvim/ftplugin/typescript.vim ~/.config/nvim/ftplugin/typescript.vim
 ln -sf ${wd}/nvim/ftplugin/markdown.vim ~/.config/nvim/ftplugin/markdown.vim
 ln -sf ${wd}/nvim/ftplugin/php.vim ~/.config/nvim/ftplugin/php.vim
+
+echo "-= Symlinking nvim/ftdetect =-"
+ln -sf ${wd}/nvim/ftdetect/svelte.vim ~/.config/nvim/ftdetect/svelte.vim
 
 echo "-= Symlinking nvim/compiler =-"
 ln -sf ${wd}/nvim/compiler/java.vim ~/.config/nvim/compiler/java.vim
