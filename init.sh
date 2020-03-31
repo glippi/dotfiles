@@ -25,7 +25,6 @@ ln -sf ${wd}/nvim/init.vim ~/.config/nvim/init.vim
 echo "-= Symlinking nvim/plugin =-"
 ln -sf ${wd}/nvim/plugin/abbreviations.vim ~/.config/nvim/plugin/abbreviations.vim
 ln -sf ${wd}/nvim/plugin/ale.vim ~/.config/nvim/plugin/ale.vim
-ln -sf ${wd}/nvim/plugin/coc.vim ~/.config/nvim/plugin/coc.vim
 ln -sf ${wd}/nvim/plugin/colorscheme.vim ~/.config/nvim/plugin/colorscheme.vim
 ln -sf ${wd}/nvim/plugin/fugitive.vim ~/.config/nvim/plugin/fugitive.vim
 ln -sf ${wd}/nvim/plugin/fzf.vim ~/.config/nvim/plugin/fzf.vim
@@ -36,6 +35,7 @@ ln -sf ${wd}/nvim/plugin/settings.vim ~/.config/nvim/plugin/settings.vim
 ln -sf ${wd}/nvim/plugin/slime.vim ~/.config/nvim/plugin/slime.vim
 ln -sf ${wd}/nvim/plugin/strip_trailing_whitespace.vim ~/.config/nvim/plugin/strip_trailing_whitespace.vim
 ln -sf ${wd}/nvim/plugin/tachyons.vim ~/.config/nvim/plugin/tachyons.vim
+ln -sf ${wd}/nvim/plugin/phpactor.vim ~/.config/nvim/plugin/phpactor.vim
 
 
 echo "-= Symlinking nvim/ftplugin =-"
