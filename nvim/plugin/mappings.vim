@@ -42,3 +42,5 @@ nnoremap <Leader>ff <esc>gg=G
 nnoremap <Leader>shp <esc>:vsplit<enter><esc>:te<enter>ipython -m SimpleHTTPServer 8000<enter>
 " remove warning for go plugin
 let g:go_version_warning = 0
+" clean up syntax highlighting problems
+noremap <leader>rr <Esc>:syntax sync fromstart<CR>

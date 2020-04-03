@@ -24,7 +24,7 @@ ln -sf ${wd}/nvim/init.vim ~/.config/nvim/init.vim
 
 echo "-= Symlinking nvim/plugin =-"
 ln -sf ${wd}/nvim/plugin/abbreviations.vim ~/.config/nvim/plugin/abbreviations.vim
-ln -sf ${wd}/nvim/plugin/ale.vim ~/.config/nvim/plugin/ale.vim
+ln -sf ${wd}/nvim/plugin/coc.vim ~/.config/nvim/plugin/coc.vim
 ln -sf ${wd}/nvim/plugin/colorscheme.vim ~/.config/nvim/plugin/colorscheme.vim
 ln -sf ${wd}/nvim/plugin/fugitive.vim ~/.config/nvim/plugin/fugitive.vim
 ln -sf ${wd}/nvim/plugin/fzf.vim ~/.config/nvim/plugin/fzf.vim

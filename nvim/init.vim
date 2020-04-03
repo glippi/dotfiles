@@ -9,6 +9,7 @@ Plug 'chemzqm/vim-jsx-improve'
 Plug 'othree/yajs.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'othree/es.next.syntax.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "Elm
 Plug 'carmonw/elm-vim' "elm 0.19
