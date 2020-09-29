@@ -18,6 +18,9 @@ Plug 'carmonw/elm-vim' "elm 0.19
 Plug 'StanAngeloff/php.vim'
 Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 
+"Perl
+Plug 'yko/mojo.vim'
+
 "Clojure
 Plug 'guns/vim-clojure-highlight'
 Plug 'guns/vim-clojure-static'

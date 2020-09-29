@@ -35,6 +35,13 @@ alias yt="yarn test"
 alias ytv="yarn test --verbose"
 alias t="touch"
 alias xx="exit"
+alias d="docker"
+alias drm="docker rm"
+alias dst="docker stop"
+alias dex="docker exec -it"
+alias dps="docker ps"
+alias dpsa="docker ps -a"
+alias dpsaq="docker ps -aq"
 
 hex_to_rgb() {
     # Usage: hex_to_rgb "#FFFFFF"
