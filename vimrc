@@ -5,6 +5,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     endif
 
 call plug#begin('~/.vim/plugged')
+Plug 'glippi/lognroll-vim'
+Plug 'glippi/markabbreviations-vim'
 Plug 'phpactor/phpactor'
 Plug 'burner/vim-svelte'
 
