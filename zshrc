@@ -6,7 +6,6 @@ setopt correctall
 export JAVA_HOME=/usr/lib/jvm/jdk-11.0.2
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=${PATH}:${JAVA_HOME}/bin
-#export CLASSPATH=$JUNIT_HOME/junit.jar:/myproject/classes:/myproject/lib/something.jar
 #go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
@@ -21,15 +20,18 @@ COMPLETION_WAITING_DOTS="true"
 
 HIST_STAMPS="dd/mm/yyyy"
 
-plugins=(
-  git
-  ubuntu
-)
-
 source $ZSH/oh-my-zsh.sh
 
+alias g="git"
+alias gl="git pull"
+alias glr="git pull -r"
+alias ggp="git push origin HEAD"
 alias gti="git"
-alias vi="nvim"
+alias ga="git add"
+alias gam="git commit --amend"
+alias gaa="git add --all"
+alias gcmsg="git commit --message"
+alias glog="git log"
 alias ys="yarn start"
 alias yt="yarn test"
 alias ytv="yarn test --verbose"
@@ -42,21 +44,8 @@ alias dex="docker exec -it"
 alias dps="docker ps"
 alias dpsa="docker ps -a"
 alias dpsaq="docker ps -aq"
-
-hex_to_rgb() {
-    # Usage: hex_to_rgb "#FFFFFF"
-    : "${1/\#}"
-    ((r=16#${_:0:2},g=16#${_:2:2},b=16#${_:4:2}))
-    printf '%s\n' "$r $g $b"
-}
-
-rgb_to_hex() {
-    # Usage: rgb_to_hex "r" "g" "b"
-    printf '#%02x%02x%02x\n' "$1" "$2" "$3"
-}
-
-BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+alias lla="ls -la"
+alias mk="make"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 if [ "$TMUX" = "" ]; then tmux; fi
