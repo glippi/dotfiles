@@ -6,18 +6,21 @@ echo ${wd}
 echo "-= Removing any existing configs =-"
 rm -rf ~/.zshrc ~/.vim ~/.vimrc ~/.config/nvim/ ~/.tmux ~/.tmux.conf 2 > /dev/null
 
-#create neovim directory
-echo "-= Creating necessary directories =-"
-mkdir -p ~/.config/nvim ~/.config/nvim/plugin ~/.config/nvim/plugin ~/.config/nvim/ftplugin ~/.config/nvim/ftdetect ~/.config/nvim/after/ftplugin ~/.config/nvim/after/ftdetect ~/.config/nvim/compiler
-
-echo "-= Symlinking zsrh configs =-"
+#create zsh config
+echo "-= Symlinking zsh configs =-"
 ln -sf ${wd}/zshrc ~/.zshrc
 
+#create tmux config
 echo "-= Symlinking tmux configs =-"
 ln -sf ${wd}/tmux.conf ~/.tmux.conf
 
-echo "-= Symlinking ideavimrc configs =-"
-ln -sf ${wd}/ideavimrc ~/.ideavimrc
+#create vim config
+echo "-= Symlinking ./vimrc =-"
+ln -sf ${wd}/vimrc ~/.vimrc
+
+#create neovim directory
+echo "-= Creating necessary directories =-"
+mkdir -p ~/.config/nvim ~/.config/nvim/plugin ~/.config/nvim/plugin ~/.config/nvim/ftplugin ~/.config/nvim/ftdetect ~/.config/nvim/after/ftplugin ~/.config/nvim/after/ftdetect ~/.config/nvim/compiler
 
 echo "-= Symlinking neovim configs =-"
 ln -sf ${wd}/nvim/init.vim ~/.config/nvim/init.vim
