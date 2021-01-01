@@ -1,0 +1,17 @@
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'phpactor/phpactor'
+Plug 'burner/vim-svelte'
+
+set incsearch hlsearch relativenumber smarttab expandtab
+set nocompatible noswapfile
+set shiftwidth=2 tabstop=2 softtabstop=2
+
+filetype indent on
+
+call plug#end()
