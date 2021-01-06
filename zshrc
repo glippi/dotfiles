@@ -24,7 +24,9 @@ source $ZSH/oh-my-zsh.sh
 
 alias g="git"
 alias gl="git pull"
+alias gd="git diff"
 alias glr="git pull -r"
+alias gst="git status"
 alias ggp="git push origin HEAD"
 alias gti="git"
 alias ga="git add"
