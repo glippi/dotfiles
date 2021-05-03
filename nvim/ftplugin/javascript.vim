@@ -11,6 +11,9 @@ nnoremap <leader>cf yaw:e src/<C-r>"<left>.js<CR>iec><C-]>
 " comment line
 nnoremap <leader>/ ^i//<space><C-c>
 
+nnoremap req cawconst<space><esc>pa<space>=<space>require('');<esc>F(lp<esc>$
+nnoremap <M-C-c> oHOLA
+
 " Require
 iabbrev req> const CHANGEREQ = require('CHANGEREQ')<esc>:%s/CHANGEREQ/
 

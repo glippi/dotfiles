@@ -16,4 +16,7 @@ set shiftwidth=2 tabstop=2 softtabstop=2
 
 filetype indent on
 
+nnoremap req cawconst<space><esc>pa<space>=<space>require('');<esc>F(lp<esc>$
+nnoremap <M-C-c> oHOLA
+
 call plug#end()

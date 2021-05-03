@@ -39,6 +39,7 @@ ln -sf ${wd}/nvim/plugin/slime.vim ~/.config/nvim/plugin/slime.vim
 ln -sf ${wd}/nvim/plugin/strip_trailing_whitespace.vim ~/.config/nvim/plugin/strip_trailing_whitespace.vim
 ln -sf ${wd}/nvim/plugin/tachyons.vim ~/.config/nvim/plugin/tachyons.vim
 ln -sf ${wd}/nvim/plugin/phpactor.vim ~/.config/nvim/plugin/phpactor.vim
+ln -sf ${wd}/nvim/plugin/mojo.vim ~/.config/nvim/plugin/mojo.vim
 
 
 echo "-= Symlinking nvim/ftplugin =-"
@@ -49,14 +50,18 @@ ln -sf ${wd}/nvim/ftplugin/java.vim ~/.config/nvim/ftplugin/java.vim
 ln -sf ${wd}/nvim/ftplugin/typescript.vim ~/.config/nvim/ftplugin/typescript.vim
 ln -sf ${wd}/nvim/ftplugin/markdown.vim ~/.config/nvim/ftplugin/markdown.vim
 ln -sf ${wd}/nvim/ftplugin/php.vim ~/.config/nvim/ftplugin/php.vim
+ln -sf ${wd}/nvim/ftplugin/html.vim ~/.config/nvim/ftplugin/html.vim
+ln -sf ${wd}/nvim/ftplugin/tsv.vim ~/.config/nvim/ftplugin/tsv.vim
 
 echo "-= Symlinking nvim/ftdetect =-"
 ln -sf ${wd}/nvim/ftdetect/svelte.vim ~/.config/nvim/ftdetect/svelte.vim
+ln -sf ${wd}/nvim/ftdetect/tsv.vim ~/.config/nvim/ftdetect/tsv.vim
 
 echo "-= Symlinking nvim/compiler =-"
 ln -sf ${wd}/nvim/compiler/java.vim ~/.config/nvim/compiler/java.vim
 ln -sf ${wd}/nvim/compiler/typescript.vim ~/.config/nvim/compiler/typescript.vim
 ln -sf ${wd}/nvim/compiler/clojure.vim ~/.config/nvim/compiler/clojure.vim
+ln -sf ${wd}/nvim/compiler/tex.vim ~/.config/nvim/compiler/tex.vim
 
 echo "-= Symlinking nvim/after/ftplugin =-"
 ln -sf ${wd}/nvim/after/ftplugin/javascript.vim ~/.config/nvim/after/ftplugin/javascript.vim
