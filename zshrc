@@ -10,17 +10,12 @@ export PATH=${PATH}:${JAVA_HOME}/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/usr/local/go/bin
-export ZSH=$HOME/.oh-my-zsh
 export UPDATE_ZSH_DAYS=30
 export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-ZSH_THEME="robbyrussell"
 
 COMPLETION_WAITING_DOTS="true"
 
 HIST_STAMPS="dd/mm/yyyy"
-
-source $ZSH/oh-my-zsh.sh
 
 alias g="git"
 alias gl="git pull"
