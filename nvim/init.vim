@@ -30,7 +30,14 @@ Plug 'neovim/nvim-lspconfig'
 "autocomplete
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
+"fuzzy finding and etc - BurntSushi/ripgrep is required for live_grep and grep_string
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 call plug#end()
+
+" Find files using Telescope command-line sugar.
+nnoremap <C-p> <cmd>Telescope find_files<cr>
+nnoremap <C-g> <cmd>Telescope live_grep<cr>
 
 lua << EOF
 local lsp = require('lspconfig')
