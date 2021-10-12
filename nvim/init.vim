@@ -13,53 +13,66 @@ Plug 'othree/es.next.syntax.vim'
 "Elm
 Plug 'carmonw/elm-vim' "elm 0.19
 
-"PHP
-Plug 'StanAngeloff/php.vim'
-Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
-
-"Perl
-Plug 'yko/mojo.vim'
-
-"Clojure
-Plug 'guns/vim-clojure-highlight'
-Plug 'guns/vim-clojure-static'
-Plug 'guns/vim-sexp'
-Plug 'tpope/vim-sexp-mappings-for-regular-people'
-Plug 'tpope/vim-fireplace'
-Plug 'tpope/vim-salve'
-
-"Kotlin
-Plug 'udalov/kotlin-vim'
-
-"Go
-Plug 'fatih/vim-go'
-
-"Elixir
-Plug 'elixir-editors/vim-elixir'
-
 "utilities
 Plug 'raimondi/delimitmate'
 Plug 'machakann/vim-highlightedyank'
-Plug 'rking/ag.vim'
-Plug 'triglav/vim-visual-increment'
-
-"repl
-Plug 'jpalardy/vim-slime'
-
-"fuzzyfinder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 
 "tpope others
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-classpath'
 
 "my plugins
 Plug 'glippi/lognroll-vim'
 Plug 'glippi/markabbreviations-vim'
-Plug 'glippi/ydkjs-vim'
-Plug 'glippi/yarn-vim'
-Plug 'glippi/javabbreviations-vim'
 Plug 'glippi/tachyons-vim', { 'do': 'sh install.sh' }
+
+"lsp
+Plug 'neovim/nvim-lspconfig' 
+"autocomplete
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
 call plug#end()
+
+lua << EOF
+local lsp = require('lspconfig')
+local cmp = require('cmp')
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+lsp.tsserver.setup{
+  capabilities = capabilities,
+}
+
+vim.o.completeopt = 'menuone,noselect'
+
+cmp.setup {
+  mapping = {
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    },
+    ['<Tab>'] = function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      else
+        fallback()
+      end
+    end,
+    ['<S-Tab>'] = function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      else
+        fallback()
+      end
+    end,
+  },
+  sources = {
+    { name = 'nvim_lsp' },
+  },
+}
+EOF
