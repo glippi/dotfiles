@@ -1,6 +1,7 @@
 #!/bin/bash
 
 wd=$(pwd)
+pluginDir=${wd}/nvim/plugin
 echo ${wd}
 
 echo "-= Install vim-plug for vim =-"
@@ -35,19 +36,17 @@ ln -sf ${wd}/nvim/init.vim ~/.config/nvim/init.vim
 
 echo "-= Symlinking nvim/plugin =-"
 ln -sf ${wd}/nvim/plugin/abbreviations.vim ~/.config/nvim/plugin/abbreviations.vim
-ln -sf ${wd}/nvim/plugin/coc.vim ~/.config/nvim/plugin/coc.vim
 ln -sf ${wd}/nvim/plugin/colorscheme.vim ~/.config/nvim/plugin/colorscheme.vim
 ln -sf ${wd}/nvim/plugin/fugitive.vim ~/.config/nvim/plugin/fugitive.vim
-ln -sf ${wd}/nvim/plugin/fzf.vim ~/.config/nvim/plugin/fzf.vim
 ln -sf ${wd}/nvim/plugin/gruvbox.vim ~/.config/nvim/plugin/gruvbox.vim
 ln -sf ${wd}/nvim/plugin/lognroll.vim ~/.config/nvim/plugin/lognroll.vim
 ln -sf ${wd}/nvim/plugin/mappings.vim ~/.config/nvim/plugin/mappings.vim
 ln -sf ${wd}/nvim/plugin/settings.vim ~/.config/nvim/plugin/settings.vim
-ln -sf ${wd}/nvim/plugin/slime.vim ~/.config/nvim/plugin/slime.vim
 ln -sf ${wd}/nvim/plugin/strip_trailing_whitespace.vim ~/.config/nvim/plugin/strip_trailing_whitespace.vim
 ln -sf ${wd}/nvim/plugin/tachyons.vim ~/.config/nvim/plugin/tachyons.vim
-ln -sf ${wd}/nvim/plugin/phpactor.vim ~/.config/nvim/plugin/phpactor.vim
-ln -sf ${wd}/nvim/plugin/mojo.vim ~/.config/nvim/plugin/mojo.vim
+ln -sf ${wd}/nvim/plugin/lsp-config.vim ~/.config/nvim/plugin/lsp-config.vim
+ln -sf ${wd}/nvim/plugin/telescope.vim ~/.config/nvim/plugin/telescope.vim
+ln -sf ${wd}/nvim/plugin/treesitter.vim ~/.config/nvim/plugin/treesitter.vim
 
 
 echo "-= Symlinking nvim/ftplugin =-"

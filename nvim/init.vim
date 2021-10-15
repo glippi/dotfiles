@@ -10,50 +10,18 @@ Plug 'othree/yajs.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'othree/es.next.syntax.vim'
 
-"Elm
-Plug 'carmonw/elm-vim' "elm 0.19
-
-"PHP
-Plug 'StanAngeloff/php.vim'
-Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
-
-"Perl
-Plug 'yko/mojo.vim'
-
-"Clojure
-Plug 'guns/vim-clojure-highlight'
-Plug 'guns/vim-clojure-static'
-Plug 'guns/vim-sexp'
-Plug 'tpope/vim-sexp-mappings-for-regular-people'
-Plug 'tpope/vim-fireplace'
-Plug 'tpope/vim-salve'
-
-"Kotlin
-Plug 'udalov/kotlin-vim'
-
-"Go
-Plug 'fatih/vim-go'
-
-"Elixir
-Plug 'elixir-editors/vim-elixir'
-
 "utilities
 Plug 'raimondi/delimitmate'
 Plug 'machakann/vim-highlightedyank'
 Plug 'rking/ag.vim'
 Plug 'triglav/vim-visual-increment'
 
-"repl
-Plug 'jpalardy/vim-slime'
-
 "fuzzyfinder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'junegunn/fzf.vim'
 
 "tpope others
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-classpath'
 
 "my plugins
 Plug 'glippi/lognroll-vim'
@@ -62,4 +30,11 @@ Plug 'glippi/ydkjs-vim'
 Plug 'glippi/yarn-vim'
 Plug 'glippi/javabbreviations-vim'
 Plug 'glippi/tachyons-vim', { 'do': 'sh install.sh' }
+
+
+"nvim v5
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
 call plug#end()

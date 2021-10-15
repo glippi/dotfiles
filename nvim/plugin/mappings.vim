@@ -1,4 +1,6 @@
 " down is really the next line
+nnoremap <silent> ;f <cmd>Telescope find_files<cr>
+nnoremap <silent> ;r <cmd>Telescope live_grep<cr>
 nnoremap j gj
 nnoremap k gk
 " remap <Esc> to jk
