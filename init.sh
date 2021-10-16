@@ -12,7 +12,14 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 echo "-= Removing any existing configs =-"
-rm -rf ~/.zshrc ~/.vim ~/.vimrc ~/.config/nvim/ ~/.tmux ~/.tmux.conf 2 > /dev/null
+rm -rf ~/.zshrc ~/.vim ~/.vimrc ~/.config/nvim/ ~/.config/fish/ ~/.tmux ~/.tmux.conf 2 > /dev/null
+
+#create fish config
+echo "-= Creating necessary directories =-"
+mkdir -p ~/.config/fish ~/.config/fish/conf.d
+echo "-= Symlinking fish configs =-"
+ln -sf ${wd}/fish/config.fish ~/.config/fish/config.fish
+ln -sf ${wd}/fish/conf.d/tmux.fish ~/.config/fish/conf.d/tmux.fish
 
 #create zsh config
 echo "-= Symlinking zsh configs =-"
