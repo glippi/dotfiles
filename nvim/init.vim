@@ -33,6 +33,8 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 "fuzzy finding and etc - BurntSushi/ripgrep is required for live_grep and grep_string
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+"treesitter - :TSInstall <language_to_install> to enable it
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 " Find files using Telescope command-line sugar.

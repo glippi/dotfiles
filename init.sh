@@ -16,10 +16,13 @@ rm -rf ~/.zshrc ~/.vim ~/.vimrc ~/.config/nvim/ ~/.config/fish/ ~/.tmux ~/.tmux.
 
 #create fish config
 echo "-= Creating necessary directories =-"
-mkdir -p ~/.config/fish ~/.config/fish/conf.d
+mkdir -p ~/.config/fish ~/.config/fish/conf.d ~/.config/fish/functions
 echo "-= Symlinking fish configs =-"
 ln -sf ${wd}/fish/config.fish ~/.config/fish/config.fish
 ln -sf ${wd}/fish/conf.d/tmux.fish ~/.config/fish/conf.d/tmux.fish
+ln -sf ${wd}/fish/functions/bass.fish ~/.config/fish/functions/bass.fish
+ln -sf ${wd}/fish/functions/bass.fish ~/.config/fish/functions/__bass.py
+ln -sf ${wd}/fish/functions/nvm.fish ~/.config/fish/functions/nvm.fish
 
 #create zsh config
 echo "-= Symlinking zsh configs =-"
