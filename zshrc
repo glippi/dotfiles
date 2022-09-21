@@ -43,6 +43,7 @@ alias dpsa="docker ps -a"
 alias dpsaq="docker ps -aq"
 alias lla="ls -la"
 alias mk="make"
+alias nim="cd && cd Applications && ./nvim.appimage"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 if [ "$TMUX" = "" ]; then tmux; fi

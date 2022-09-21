@@ -27,4 +27,3 @@ alias dpsaq="docker ps -aq"
 alias lla="ls -la"
 alias mk="make"
 
-test $TERM != "screen"; and exec tmux
