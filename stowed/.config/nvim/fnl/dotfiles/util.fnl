@@ -25,3 +25,7 @@
 
 (defn lnnoremap [from to]
   (nnoremap (.. "<leader>" from) to))
+
+(defn noremap [mode from to]
+  "Sets a mapping with {:noremap true}."
+  (nvim.set_keymap mode from to {:noremap true}))
