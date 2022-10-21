@@ -11,3 +11,4 @@
 
 (nvim.ex.set :spell)
 (nvim.ex.set :list)
+(nvim.ex.colorscheme :falcon)
