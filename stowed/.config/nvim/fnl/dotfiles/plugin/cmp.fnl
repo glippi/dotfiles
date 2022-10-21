@@ -1,14 +1,14 @@
 (module dotfiles.plugin.cmp
   {autoload {nvim aniseed.nvim}})
 
-(set nvim.o.completeopt "menuone,noselect")
+(set nvim.o.completeopt "menu,noselect")
 
 (let [(ok? cmp) (pcall require :cmp)]
   (when ok?
     (cmp.setup
-      {:sources [{:name "conjure"}
+      {:sources [{:name "buffer"}
+                 {:name "conjure"}
                  {:name "nvim_lsp"}
-                 {:name "buffer"}
                  {:name "path"}
                  {:name "cmdline"}]
        :mapping (cmp.mapping.preset.insert
