@@ -4,7 +4,7 @@ set -xe
 
 sudo dnf install -y \
   kitty fzf cowsay entr fish httpie htop npm nodejs \
-  asciinema ripgrep clojure clojure-lsp lazygit tree \
+  asciinema ripgrep clojure lazygit tree \
   lua-language-server lua xclip \
   ttf-fira-code ttf-dejavu-emojiless noto-fonts-emoji \
   gnome-keyring topgrade neovim leiningen difftastic
