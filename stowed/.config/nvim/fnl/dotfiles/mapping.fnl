@@ -1,11 +1,6 @@
 (module dotfiles.mapping
   {autoload {nvim aniseed.nvim
-             nu aniseed.nvim.util
-             core aniseed.core}})
-
-(defn- noremap [mode from to]
-  "Sets a mapping with {:noremap true}."
-  (nvim.set_keymap mode from to {:noremap true}))
+             util dotfiles.util}})
 
 ;; Generic mapping configuration.
 (nvim.set_keymap :n :<space> :<nop> {:noremap true})
@@ -13,17 +8,35 @@
 (set nvim.g.maplocalleader ",")
 
 ;; jk escape sequences.
-(noremap :i :jk :<esc>)
-(noremap :c :jk :<c-c>)
-(noremap :t :jk :<c-\><c-n>)
-
-;; Spacemacs style leader mappings.
-(noremap :n :<leader>wm ":tab sp<cr>")
-(noremap :n :<leader>wc ":only<cr>")
-(noremap :n :<leader>bd ":bdelete!<cr>")
-(noremap :n :<leader>to ":tabonly<cr>")
-(noremap :n :<leader>sw ":mksession! .quicksave.vim<cr>")
-(noremap :n :<leader>sr ":source .quicksave.vim<cr>")
+(util.noremap :i :jk :<esc>)
+(util.noremap :c :jk :<c-c>)
+(util.noremap :t :jk :<c-\><c-n>)
 
 ;; Trim trialing whitespace.
-(noremap :n :<leader>bt ":%s/\\s\\+$//e<cr>")
+(util.noremap :n :<leader>bt ":%s/\\s\\+$//e<cr>")
+
+;; iabbrev
+;; df\<space> (defn)
+(nvim.set_keymap :i "df\\<space>" "defn<esc>Fdi(<esc>fna)<esc>i<space>" {})
+
+;; cnoreabbrev
+(util.noremap :c :Wa :wa)
+(util.noremap :c :wA :wa)
+(util.noremap :c :WA :wa)
+(util.noremap :c :Wq :wq)
+(util.noremap :c :wQ :wq)
+(util.noremap :c :WQ :wq)
+(util.noremap :c :Wqa :wqa)
+(util.noremap :c :WQa :wqa)
+(util.noremap :c :WQA :wqa)
+(util.noremap :c :W! :w!)
+(util.noremap :c :W :w)
+(util.noremap :c :Q :q)
+(util.noremap :c :Q! :q!)
+(util.noremap :c :Qa :qa)
+(util.noremap :c :qA :qa)
+(util.noremap :c :Bd :bd)
+(util.noremap :c :bD :bd)
+(util.noremap :c :BD :bd)
+(util.noremap :c :E :e)
+(util.noremap :c :f :find)
