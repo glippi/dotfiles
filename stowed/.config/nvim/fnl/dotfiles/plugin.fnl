@@ -25,31 +25,27 @@
 
 ;; Plugins to be managed by packer.
 (use
-  :Olical/aniseed {:branch :develop}
-  :Olical/conjure {:branch :master :mod :conjure}
+  :Olical/aniseed {}
+  :Olical/conjure {:mod :conjure}
   :Olical/nvim-local-fennel {}
   :lewis6991/impatient.nvim {}
+  :fenetikm/falcon {}
   :HerringtonDarkholme/yats.vim {}
   :PaterJason/cmp-conjure {}
-  :airblade/vim-gitgutter {}
+  :gpanders/nvim-parinfer {}
   :clojure-vim/clojure.vim {}
-  :folke/which-key.nvim {:mod :which-key}
   :guns/vim-sexp {:mod :sexp}
-  :habamax/vim-asciidoctor {}
-  :hashivim/vim-terraform {}
+  :hrsh7th/nvim-cmp {:mod :cmp}
   :hrsh7th/cmp-buffer {}
   :hrsh7th/cmp-cmdline {}
   :hrsh7th/cmp-nvim-lsp {}
   :hrsh7th/cmp-path {}
-  :hrsh7th/nvim-cmp {:mod :cmp}
   :liuchengxu/vim-better-default {:mod :better-default}
-  :marko-cerovac/material.nvim {:mod :material}
   :maxmellon/vim-jsx-pretty {}
   :neovim/nvim-lspconfig {:mod :lspconfig}
   :norcalli/nvim-colorizer.lua {:mod :colorizer}
   :nvim-lualine/lualine.nvim {:mod :lualine}
   :nvim-telescope/telescope.nvim {:mod :telescope :requires [[:nvim-lua/popup.nvim] [:nvim-lua/plenary.nvim]]}
-  :nvim-treesitter/nvim-treesitter {:mod :treesitter}
   :pangloss/vim-javascript {}
   :tpope/vim-fugitive {:mod :fugitive}
   :tpope/vim-repeat {}
@@ -61,5 +57,5 @@
   :nvim-treesitter/nvim-treesitter {:run ":TSUpdate" :mod :treesitter}
   :glippi/lognroll-vim {}
   :glippi/markabbreviations-vim {}
-  :glippi/baddscratch {}
-  )
+  :ggandor/leap.nvim {}
+  :glippi/badscratch.nvim {})
