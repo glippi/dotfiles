@@ -1,8 +1,10 @@
 """
 To be used with a companion fish function like this:
+
         function refish
             set -l _x (python /tmp/bass.py source ~/.nvm/nvim.sh ';' nvm use iojs); source $_x; and rm -f $_x
         end
+
 """
 
 from __future__ import print_function
@@ -33,6 +35,8 @@ def ignored(name):
     if name in FISH_READONLY:
         return True
     if name in IGNORED or name.startswith("BASH_FUNC"):
+        return True
+    if name.startswith('%'):
         return True
     return False
 
