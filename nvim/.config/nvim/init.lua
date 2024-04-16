@@ -328,6 +328,7 @@ vim.cmd('cnoreabbrev W w')
 vim.cmd('cnoreabbrev Q q')
 vim.cmd('cnoreabbrev Qall qall')
 vim.cmd('abb dfn (defn)')
+vim.cmd('abb (Defn) (defn)')
 
 vim.cmd("abb rr (ns <c-r>=expand('%')<cr><esc>0wwdf/<cr>(:require [cljs.test :refer [deftest is testing]]))"
          .. "<esc>:%s/\\//\\./g<cr>")
