@@ -17,6 +17,7 @@ alias glog="git log"
 alias gco="git checkout"
 alias gcb="git checkout -b"
 alias gbv="git branch -v"
+alias gu="git reset --soft HEAD^"
 
 alias ys="yarn start"
 alias yt="yarn test"
@@ -54,3 +55,6 @@ set -x PATH $ANDROID_HOME/build-tools $PATH
 set -x PATH $ANDROID_HOME/cmdline-tools $PATH
 set -x PATH $ANDROID_HOME/platform-tools $PATH
 
+if status is-interactive
+    eval (zellij setup --generate-auto-start fish | string collect)
+end

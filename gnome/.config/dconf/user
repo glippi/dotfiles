@@ -1,0 +1,351 @@
+[org/gnome/Characters]
+recent-characters=['🪃', '🤦', '\u200d', '🤼\u200d♂️', '🥋', '🚀', '🃏', '🚦', '🚧', '⚒️', '📋', '😅', '📦', '📑', '🔑', '👨\u200d💻', '🍝', '🗺️', '🎯', '👋', '❌', '✅', '☔']
+
+[org/gnome/Connections]
+first-run=false
+
+[org/gnome/Console]
+audible-bell=false
+last-window-maximised=true
+last-window-size=(652, 452)
+theme='night'
+use-system-font=true
+visual-bell=false
+
+[org/gnome/GWeather4]
+temperature-unit='centigrade'
+
+[org/gnome/TextEditor]
+last-save-directory='file:///home/urbest/.config/fish/functions'
+
+[org/gnome/Totem]
+active-plugins=['vimeo', 'variable-rate', 'skipto', 'screenshot', 'screensaver', 'save-file', 'rotation', 'recent', 'movie-properties', 'open-directory', 'mpris', 'autoload-subtitles', 'apple-trailers']
+subtitle-encoding='UTF-8'
+
+[org/gnome/Weather]
+locations=[<(uint32 2, <('Barcelona', 'LEBL', true, [(0.72053008704722821, 0.036070143692313643)], [(0.72227541629922254, 0.038106349517445362)])>)>]
+window-height=503
+window-maximized=false
+window-width=992
+
+[org/gnome/calendar]
+active-view='month'
+window-maximized=true
+window-size=(768, 600)
+
+[org/gnome/cheese]
+burst-delay=1000
+camera='XiaoMi USB 2.0 Webcam (V4L2)'
+photo-x-resolution=1280
+photo-y-resolution=720
+video-x-resolution=1280
+video-y-resolution=720
+
+[org/gnome/clocks]
+alarms=[{'name': <''>, 'id': <'8e3af95dd5ba6363486ef19665855ece'>, 'active': <true>, 'hour': <13>, 'minute': <50>, 'days': <@ai []>, 'snooze_minutes': <10>, 'ring_minutes': <5>}]
+timers=[{'duration': <300>, 'name': <''>}]
+
+[org/gnome/clocks/state/window]
+maximized=false
+panel-id='timer'
+size=(870, 690)
+
+[org/gnome/control-center]
+last-panel='system'
+window-state=(980, 640, true)
+
+[org/gnome/desktop/app-folders]
+folder-children=['Utilities', 'YaST']
+
+[org/gnome/desktop/app-folders/folders/Utilities]
+apps=['gnome-abrt.desktop', 'gnome-system-log.desktop', 'nm-connection-editor.desktop', 'org.gnome.baobab.desktop', 'org.gnome.Connections.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.eog.desktop', 'org.gnome.Evince.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.fonts.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Usage.desktop', 'vinagre.desktop']
+categories=['X-GNOME-Utilities']
+name='X-GNOME-Utilities.directory'
+translate=true
+
+[org/gnome/desktop/app-folders/folders/YaST]
+categories=['X-SuSE-YaST']
+name='suse-yast.directory'
+translate=true
+
+[org/gnome/desktop/input-sources]
+mru-sources=[('xkb', 'us'), ('xkb', 'es')]
+sources=[('xkb', 'us'), ('xkb', 'es')]
+xkb-options=['ctrl:nocaps']
+
+[org/gnome/desktop/interface]
+color-scheme='prefer-dark'
+enable-animations=true
+enable-hot-corners=false
+font-antialiasing='grayscale'
+font-hinting='slight'
+gtk-im-module='gtk-im-context-simple:xim'
+show-battery-percentage=true
+text-scaling-factor=1.0
+toolkit-accessibility=false
+
+[org/gnome/desktop/notifications]
+application-children=['gnome-power-panel', 'org-gnome-terminal', 'org-gnome-software', 'org-gnome-tweaks', 'firefox', 'com-google-androidstudio', 'org-gnome-evolution-alarm-notify', 'com-usebottles-bottles', 'chromium-browser', 'gnome-network-panel', 'org-freedesktop-problems-applet', 'org-gnome-totem', 'org-gnome-console', 'org-gnome-clocks', 'code', 'org-gnome-nautilus', 'google-chrome-unstable', 'kitty', 'org-mozilla-firefox', 'libreoffice-calc', 'org-gnome-shell-portalhelper', 'google-chrome', 'org-gnome-eog']
+show-banners=false
+
+[org/gnome/desktop/notifications/application/chromium-browser]
+application-id='chromium-browser.desktop'
+
+[org/gnome/desktop/notifications/application/code]
+application-id='code.desktop'
+
+[org/gnome/desktop/notifications/application/com-google-androidstudio]
+application-id='com.google.AndroidStudio.desktop'
+enable=false
+
+[org/gnome/desktop/notifications/application/com-usebottles-bottles]
+application-id='com.usebottles.bottles.desktop'
+
+[org/gnome/desktop/notifications/application/firefox]
+application-id='firefox.desktop'
+details-in-lock-screen=true
+force-expanded=true
+
+[org/gnome/desktop/notifications/application/gnome-network-panel]
+application-id='gnome-network-panel.desktop'
+
+[org/gnome/desktop/notifications/application/gnome-power-panel]
+application-id='gnome-power-panel.desktop'
+
+[org/gnome/desktop/notifications/application/google-chrome-unstable]
+application-id='google-chrome-unstable.desktop'
+
+[org/gnome/desktop/notifications/application/google-chrome]
+application-id='google-chrome.desktop'
+
+[org/gnome/desktop/notifications/application/kitty]
+application-id='kitty.desktop'
+
+[org/gnome/desktop/notifications/application/libreoffice-calc]
+application-id='libreoffice-calc.desktop'
+
+[org/gnome/desktop/notifications/application/org-freedesktop-problems-applet]
+application-id='org.freedesktop.problems.applet.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-clocks]
+application-id='org.gnome.clocks.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-console]
+application-id='org.gnome.Console.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-eog]
+application-id='org.gnome.eog.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-evolution-alarm-notify]
+application-id='org.gnome.Evolution-alarm-notify.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-nautilus]
+application-id='org.gnome.Nautilus.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-shell-portalhelper]
+application-id='org.gnome.Shell.PortalHelper.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-software]
+application-id='org.gnome.Software.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-terminal]
+application-id='org.gnome.Terminal.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-totem]
+application-id='org.gnome.Totem.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-tweaks]
+application-id='org.gnome.tweaks.desktop'
+
+[org/gnome/desktop/notifications/application/org-mozilla-firefox]
+application-id='org.mozilla.firefox.desktop'
+
+[org/gnome/desktop/peripherals/touchpad]
+tap-to-click=true
+two-finger-scrolling-enabled=true
+
+[org/gnome/desktop/privacy]
+old-files-age=uint32 30
+recent-files-max-age=-1
+
+[org/gnome/desktop/search-providers]
+sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
+
+[org/gnome/desktop/session]
+idle-delay=uint32 0
+
+[org/gnome/desktop/wm/preferences]
+audible-bell=false
+focus-mode='sloppy'
+visual-bell=false
+
+[org/gnome/eog/ui]
+image-gallery=true
+sidebar=false
+
+[org/gnome/evince/default]
+continuous=true
+dual-page=false
+dual-page-odd-left=true
+enable-spellchecking=true
+fullscreen=false
+inverted-colors=false
+show-sidebar=true
+sidebar-page='thumbnails'
+sidebar-size=148
+sizing-mode='automatic'
+window-ratio=(0.88862758273139597, 0.71267371421784065)
+
+[org/gnome/evolution-data-server]
+migrated=true
+
+[org/gnome/evolution-data-server/calendar]
+notify-window-height=537
+notify-window-paned-position=262
+notify-window-width=625
+notify-window-x=26
+notify-window-y=23
+reminders-past=['7078026c2a3de21481974a6f7db3b90fea2dd734\n438aa56eb0259ccc778de5abf9738e7a257ce9cc\t20240620T093000\n1718871900\n1718872200\n1718873100\nBEGIN:VEVENT\r\nDTSTART;TZID=Europe/London:20240620T093000\r\nDTEND;TZID=Europe/London:20240620T094500\r\nRRULE:FREQ=WEEKLY;BYDAY=WE,TH,FR\r\nDTSTAMP:20231013T075611Z\r\nUID:7bbi84191jaq57pk0r5qaddr43@google.com\r\nCREATED:20230928T082431Z\r\nDESCRIPTION:Use Gmeets<br><a href="https://www.google.com/url?q=http:\r\n //meet.google.com/hsf-dofb-djq&amp\\;sa=D&amp\\;source=calendar&amp\\;\r\n ust=1696321433793610&amp\\;usg=AOvVaw1SW0pCvT0ox6NRZ5zMFGgh" \r\n target="_blank"><u>meet.google.com/hsf-dofb-djq</u></a>\r\nLAST-MODIFIED:20240425T085131Z\r\nLOCATION:\r\nSEQUENCE:0\r\nSTATUS:CONFIRMED\r\nSUMMARY:Facetime meeting\r\nTRANSP:OPAQUE\r\nATTACH;FILENAME=Notes - Facetime meeting;\r\n FMTTYPE=application/vnd.google-apps.document:https:\r\n //docs.google.com/document/d/1gzPRsxT0i6bnOxvfmLW7QIEuxHTLqmTmkQVsFXy6ef4/\r\n edit\r\nX-EVOLUTION-CALDAV-ETAG:63832866971\r\nRECURRENCE-ID;TZID=Europe/London:20240620T093000\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:438aa56eb0259ccc778de5abf9738e7a257ce9cc\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT5M\r\nACKNOWLEDGED:20240425T085131Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', '7078026c2a3de21481974a6f7db3b90fea2dd734\nf8753419d848a6fa0e71a2b5301ed22715a28218\t20240619T160000\n1718805000\n1718805600\n1718807400\nBEGIN:VEVENT\r\nDTSTART;TZID=Europe/Paris:20240619T160000\r\nDTEND;TZID=Europe/Paris:20240619T163000\r\nRRULE:FREQ=WEEKLY;INTERVAL=2;BYDAY=WE;WKST=SU\r\nEXDATE;TZID=Europe/Paris:20240313T160000\r\nEXDATE;TZID=Europe/Paris:20240327T160000\r\nDTSTAMP:20240410T135031Z\r\nORGANIZER;CN=hugo@urbest.io:mailto:hugo@urbest.io\r\nUID:3945vdkevrn0ngbn98lvom4fen_R20240313T150000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=radu@urbest.io;X-NUM-GUESTS=0:mailto:radu@urbest.io\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=hugo@urbest.io;X-NUM-GUESTS=0:mailto:hugo@urbest.io\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=henry@urbest.io;X-NUM-GUESTS=0:mailto:henry@urbest.io\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=theo@urbest.io;X-NUM-GUESTS=0:mailto:theo@urbest.io\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=dima@urbest.io;X-NUM-GUESTS=0:mailto:dima@urbest.io\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=anna@urbest.io;X-NUM-GUESTS=0:mailto:anna@urbest.io\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=gabriele@urbest.io;X-NUM-GUESTS=0:mailto:gabriele@urbest.io\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=onur@urbest.io;X-NUM-GUESTS=0:mailto:onur@urbest.io\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=rahul.salhotra@urbest.io;X-NUM-GUESTS=0:mailto:\r\n rahul.salhotra@urbest.io\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=TENTATIVE;\r\n CN=ilya@urbest.io;X-NUM-GUESTS=0:mailto:ilya@urbest.io\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=hello@urbest.io;X-NUM-GUESTS=0:mailto:hello@urbest.io\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/vos-mawp-xtt\r\nCREATED:20210525T133039Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nJoin with Google Meet: https:\r\n //meet.google.com/vos-mawp-xtt\\nOr dial: (FR) +33 1 87 40 12 92 PIN: \r\n 513718084#\\nMore phone numbers: https:\r\n //tel.meet/vos-mawp-xtt?pin=1695206002086&hs=7\\n\\nLearn more about Meet \r\n at: https://support.google.com/a/users/answer/9282720\\n\\nPlease do not \r\n edit this section.\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20240410T135031Z\r\nLOCATION:\r\nSEQUENCE:0\r\nSTATUS:CONFIRMED\r\nSUMMARY:Bi-weekly review\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63848440231\r\nRECURRENCE-ID;TZID=Europe/Paris:20240619T160000\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT10M\r\nX-EVOLUTION-ALARM-UID:f8753419d848a6fa0e71a2b5301ed22715a28218\r\nEND:VALARM\r\nEND:VEVENT\r\n', '7078026c2a3de21481974a6f7db3b90fea2dd734\n438aa56eb0259ccc778de5abf9738e7a257ce9cc\t20240619T093000\n1718785500\n1718785800\n1718786700\nBEGIN:VEVENT\r\nDTSTART;TZID=Europe/London:20240619T093000\r\nDTEND;TZID=Europe/London:20240619T094500\r\nRRULE:FREQ=WEEKLY;BYDAY=WE,TH,FR\r\nDTSTAMP:20231013T075611Z\r\nUID:7bbi84191jaq57pk0r5qaddr43@google.com\r\nCREATED:20230928T082431Z\r\nDESCRIPTION:Use Gmeets<br><a href="https://www.google.com/url?q=http:\r\n //meet.google.com/hsf-dofb-djq&amp\\;sa=D&amp\\;source=calendar&amp\\;\r\n ust=1696321433793610&amp\\;usg=AOvVaw1SW0pCvT0ox6NRZ5zMFGgh" \r\n target="_blank"><u>meet.google.com/hsf-dofb-djq</u></a>\r\nLAST-MODIFIED:20240425T085131Z\r\nLOCATION:\r\nSEQUENCE:0\r\nSTATUS:CONFIRMED\r\nSUMMARY:Facetime meeting\r\nTRANSP:OPAQUE\r\nATTACH;FILENAME=Notes - Facetime meeting;\r\n FMTTYPE=application/vnd.google-apps.document:https:\r\n //docs.google.com/document/d/1gzPRsxT0i6bnOxvfmLW7QIEuxHTLqmTmkQVsFXy6ef4/\r\n edit\r\nX-EVOLUTION-CALDAV-ETAG:63832866971\r\nRECURRENCE-ID;TZID=Europe/London:20240619T093000\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:438aa56eb0259ccc778de5abf9738e7a257ce9cc\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT5M\r\nACKNOWLEDGED:20240425T085131Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', '7078026c2a3de21481974a6f7db3b90fea2dd734\n16c7bf1fbef205ed285841ad997a2fe16d941cda\t20240617T093000\n1718612700\n1718613000\n1718613900\nBEGIN:VEVENT\r\nDTSTART;TZID=Europe/London:20240617T093000\r\nDTEND;TZID=Europe/London:20240617T094500\r\nRRULE:FREQ=WEEKLY;BYDAY=MO\r\nDTSTAMP:20230928T082534Z\r\nUID:1h41a5lpg21sftdvlt40gvr323@google.com\r\nCREATED:20230928T082534Z\r\nDESCRIPTION:Use Gmeets<br><a href="https://www.google.com/url?q=http:\r\n //meet.google.com/hsf-dofb-djq&amp\\;sa=D&amp\\;source=calendar&amp\\;\r\n ust=1696321433818350&amp\\;usg=AOvVaw0o_TRtYrUsp85Fx5BzCNut" \r\n target="_blank"><u>meet.google.com/hsf-dofb-djq</u></a>\r\nLAST-MODIFIED:20240425T085131Z\r\nLOCATION:\r\nSEQUENCE:0\r\nSTATUS:CONFIRMED\r\nSUMMARY:Facetime meeting\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63831572734\r\nRECURRENCE-ID;TZID=Europe/London:20240617T093000\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:16c7bf1fbef205ed285841ad997a2fe16d941cda\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT5M\r\nACKNOWLEDGED:20240425T085131Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', '7078026c2a3de21481974a6f7db3b90fea2dd734\n438aa56eb0259ccc778de5abf9738e7a257ce9cc\t20240614T093000\n1718353500\n1718353800\n1718354700\nBEGIN:VEVENT\r\nDTSTART;TZID=Europe/London:20240614T093000\r\nDTEND;TZID=Europe/London:20240614T094500\r\nRRULE:FREQ=WEEKLY;BYDAY=WE,TH,FR\r\nDTSTAMP:20231013T075611Z\r\nUID:7bbi84191jaq57pk0r5qaddr43@google.com\r\nCREATED:20230928T082431Z\r\nDESCRIPTION:Use Gmeets<br><a href="https://www.google.com/url?q=http:\r\n //meet.google.com/hsf-dofb-djq&amp\\;sa=D&amp\\;source=calendar&amp\\;\r\n ust=1696321433793610&amp\\;usg=AOvVaw1SW0pCvT0ox6NRZ5zMFGgh" \r\n target="_blank"><u>meet.google.com/hsf-dofb-djq</u></a>\r\nLAST-MODIFIED:20240425T085131Z\r\nLOCATION:\r\nSEQUENCE:0\r\nSTATUS:CONFIRMED\r\nSUMMARY:Facetime meeting\r\nTRANSP:OPAQUE\r\nATTACH;FILENAME=Notes - Facetime meeting;\r\n FMTTYPE=application/vnd.google-apps.document:https:\r\n //docs.google.com/document/d/1gzPRsxT0i6bnOxvfmLW7QIEuxHTLqmTmkQVsFXy6ef4/\r\n edit\r\nX-EVOLUTION-CALDAV-ETAG:63832866971\r\nRECURRENCE-ID;TZID=Europe/London:20240614T093000\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:438aa56eb0259ccc778de5abf9738e7a257ce9cc\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT5M\r\nACKNOWLEDGED:20240425T085131Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', '7078026c2a3de21481974a6f7db3b90fea2dd734\n438aa56eb0259ccc778de5abf9738e7a257ce9cc\t20240613T093000\n1718267100\n1718267400\n1718268300\nBEGIN:VEVENT\r\nDTSTART;TZID=Europe/London:20240613T093000\r\nDTEND;TZID=Europe/London:20240613T094500\r\nRRULE:FREQ=WEEKLY;BYDAY=WE,TH,FR\r\nDTSTAMP:20231013T075611Z\r\nUID:7bbi84191jaq57pk0r5qaddr43@google.com\r\nCREATED:20230928T082431Z\r\nDESCRIPTION:Use Gmeets<br><a href="https://www.google.com/url?q=http:\r\n //meet.google.com/hsf-dofb-djq&amp\\;sa=D&amp\\;source=calendar&amp\\;\r\n ust=1696321433793610&amp\\;usg=AOvVaw1SW0pCvT0ox6NRZ5zMFGgh" \r\n target="_blank"><u>meet.google.com/hsf-dofb-djq</u></a>\r\nLAST-MODIFIED:20240425T085131Z\r\nLOCATION:\r\nSEQUENCE:0\r\nSTATUS:CONFIRMED\r\nSUMMARY:Facetime meeting\r\nTRANSP:OPAQUE\r\nATTACH;FILENAME=Notes - Facetime meeting;\r\n FMTTYPE=application/vnd.google-apps.document:https:\r\n //docs.google.com/document/d/1gzPRsxT0i6bnOxvfmLW7QIEuxHTLqmTmkQVsFXy6ef4/\r\n edit\r\nX-EVOLUTION-CALDAV-ETAG:63832866971\r\nRECURRENCE-ID;TZID=Europe/London:20240613T093000\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:438aa56eb0259ccc778de5abf9738e7a257ce9cc\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT5M\r\nACKNOWLEDGED:20240425T085131Z\r\nEND:VALARM\r\nEND:VEVENT\r\n', '7078026c2a3de21481974a6f7db3b90fea2dd734\n438aa56eb0259ccc778de5abf9738e7a257ce9cc\t20240612T093000\n1718180700\n1718181000\n1718181900\nBEGIN:VEVENT\r\nDTSTART;TZID=Europe/London:20240612T093000\r\nDTEND;TZID=Europe/London:20240612T094500\r\nRRULE:FREQ=WEEKLY;BYDAY=WE,TH,FR\r\nDTSTAMP:20231013T075611Z\r\nUID:7bbi84191jaq57pk0r5qaddr43@google.com\r\nCREATED:20230928T082431Z\r\nDESCRIPTION:Use Gmeets<br><a href="https://www.google.com/url?q=http:\r\n //meet.google.com/hsf-dofb-djq&amp\\;sa=D&amp\\;source=calendar&amp\\;\r\n ust=1696321433793610&amp\\;usg=AOvVaw1SW0pCvT0ox6NRZ5zMFGgh" \r\n target="_blank"><u>meet.google.com/hsf-dofb-djq</u></a>\r\nLAST-MODIFIED:20240425T085131Z\r\nLOCATION:\r\nSEQUENCE:0\r\nSTATUS:CONFIRMED\r\nSUMMARY:Facetime meeting\r\nTRANSP:OPAQUE\r\nATTACH;FILENAME=Notes - Facetime meeting;\r\n FMTTYPE=application/vnd.google-apps.document:https:\r\n //docs.google.com/document/d/1gzPRsxT0i6bnOxvfmLW7QIEuxHTLqmTmkQVsFXy6ef4/\r\n edit\r\nX-EVOLUTION-CALDAV-ETAG:63832866971\r\nRECURRENCE-ID;TZID=Europe/London:20240612T093000\r\nBEGIN:VALARM\r\nX-EVOLUTION-ALARM-UID:438aa56eb0259ccc778de5abf9738e7a257ce9cc\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER;RELATED=START:-PT5M\r\nACKNOWLEDGED:20240425T085131Z\r\nEND:VALARM\r\nEND:VEVENT\r\n']
+
+[org/gnome/gnome-system-monitor]
+current-tab='resources'
+maximized=true
+network-total-in-bits=false
+show-dependencies=false
+show-whose-processes='user'
+window-state=(1920, 1048, 0, 0)
+
+[org/gnome/gnome-system-monitor/disktreenew]
+col-6-visible=true
+col-6-width=0
+
+[org/gnome/gnome-system-monitor/proctree]
+columns-order=[0, 1, 2, 3, 4, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+sort-col=15
+sort-order=0
+
+[org/gnome/login-screen]
+enable-fingerprint-authentication=true
+enable-password-authentication=true
+enable-smartcard-authentication=false
+
+[org/gnome/mutter]
+dynamic-workspaces=false
+workspaces-only-on-primary=false
+
+[org/gnome/nautilus/compression]
+default-compression-format='zip'
+
+[org/gnome/nautilus/list-view]
+default-zoom-level='small'
+
+[org/gnome/nautilus/preferences]
+default-folder-viewer='list-view'
+migrated-gtk-settings=true
+search-filter-time-type='last_modified'
+
+[org/gnome/nautilus/window-state]
+initial-size=(360, 380)
+maximized=true
+
+[org/gnome/nm-applet/eap/18af2baa-d39d-44ee-8566-665f658b638d]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[org/gnome/photos]
+window-maximized=true
+
+[org/gnome/portal/filechooser/chromium-browser]
+last-folder-path='/home/urbest/pwa/public/icons'
+
+[org/gnome/portal/filechooser/code]
+last-folder-path='/home/urbest/urbestteam/z-frontend'
+
+[org/gnome/portal/filechooser/com.visualstudio.code]
+last-folder-path='/home/urbest/z-frontend'
+
+[org/gnome/portal/filechooser/google-chrome-unstable]
+last-folder-path='/home/urbest/Pictures'
+
+[org/gnome/settings-daemon/plugins/color]
+night-light-enabled=true
+night-light-temperature=uint32 2741
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
+binding='<Control>Print'
+command='sh -c -- "flameshot gui"'
+name='Flameshot'
+
+[org/gnome/settings-daemon/plugins/power]
+ambient-enabled=false
+power-saver-profile-on-low-battery=false
+sleep-inactive-ac-type='nothing'
+
+[org/gnome/shell]
+app-picker-layout=[{'org.gnome.Contacts.desktop': <{'position': <0>}>, 'org.gnome.Weather.desktop': <{'position': <1>}>, 'com.usebottles.bottles.desktop': <{'position': <2>}>, 'org.gnome.clocks.desktop': <{'position': <3>}>, 'org.gnome.Maps.desktop': <{'position': <4>}>, 'org.gnome.Books.desktop': <{'position': <5>}>, 'org.gnome.Photos.desktop': <{'position': <6>}>, 'org.gnome.Totem.desktop': <{'position': <7>}>, 'org.gnome.Calculator.desktop': <{'position': <8>}>, 'org.gnome.Calendar.desktop': <{'position': <9>}>, 'simple-scan.desktop': <{'position': <10>}>, 'org.gnome.Settings.desktop': <{'position': <11>}>, 'org.gnome.Chess.desktop': <{'position': <12>}>, 'org.gnome.Boxes.desktop': <{'position': <13>}>, 'org.gnome.Terminal.desktop': <{'position': <14>}>, 'Utilities': <{'position': <15>}>, 'nl.hjdskes.gcolor3.desktop': <{'position': <16>}>, 'yelp.desktop': <{'position': <17>}>, 'emacs.desktop': <{'position': <18>}>, 'org.gnome.Cheese.desktop': <{'position': <19>}>, 'org.fedoraproject.MediaWriter.desktop': <{'position': <20>}>, 'libreoffice-calc.desktop': <{'position': <21>}>, 'libreoffice-impress.desktop': <{'position': <22>}>}, {'libreoffice-writer.desktop': <{'position': <0>}>, 'nvim.desktop': <{'position': <1>}>, 'org.gnome.Rhythmbox3.desktop': <{'position': <2>}>, 'org.gnome.Software.desktop': <{'position': <3>}>, 'org.gnome.TextEditor.desktop': <{'position': <4>}>, 'org.gnome.Todo.desktop': <{'position': <5>}>, 'org.gnome.Tour.desktop': <{'position': <6>}>, 'com.github.unrud.VideoDownloader.desktop': <{'position': <7>}>, 'fish.desktop': <{'position': <8>}>, 'org.gnome.Notes.desktop': <{'position': <9>}>, 'code.desktop': <{'position': <10>}>}]
+enabled-extensions=['background-logo@fedorahosted.org', 'just-perfection-desktop@just-perfection']
+favorite-apps=['org.mozilla.firefox.desktop', 'google-chrome-unstable.desktop', 'Alacritty.desktop', 'kitty.desktop', 'code.desktop', 'org.gnome.gitg.desktop', 'com.google.AndroidStudio.desktop', 'org.gnome.Nautilus.desktop', 'freetube.desktop', 'io.typora.Typora.desktop', 'org.flameshot.Flameshot.desktop', 'com.github.xournalpp.xournalpp.desktop']
+last-selected-power-profile='performance'
+welcome-dialog-last-shown-version='44.0'
+
+[org/gnome/shell/app-switcher]
+current-workspace-only=true
+
+[org/gnome/shell/weather]
+automatic-location=true
+locations=[<(uint32 2, <('Barcelona', 'LEBL', true, [(0.72053008704722821, 0.036070143692313643)], [(0.72227541629922254, 0.038106349517445362)])>)>]
+
+[org/gnome/shell/world-clocks]
+locations=@av []
+
+[org/gnome/software]
+check-timestamp=int64 1718869950
+first-run=false
+flatpak-purge-timestamp=int64 1718790413
+install-timestamp=int64 1718834700
+packagekit-historical-updates-timestamp=uint64 1718834700
+security-timestamp=int64 1713340612260100
+update-notification-timestamp=int64 1718869889
+upgrade-notification-timestamp=int64 1713974369
+
+[org/gnome/todo]
+default-provider='local'
+window-maximized=true
+
+[org/gnome/tweaks]
+show-extensions-notice=false
+
+[org/gtk/gtk4/settings/file-chooser]
+date-format='regular'
+location-mode='path-bar'
+show-hidden=false
+show-size-column=true
+show-type-column=true
+sidebar-width=140
+sort-column='name'
+sort-directories-first=false
+sort-order='ascending'
+type-format='category'
+view-type='list'
+window-size=(1176, 768)
+
+[org/gtk/settings/color-chooser]
+custom-colors=[(0.28627450980392155, 0.6588235294117647, 0.20784313725490197, 1.0), (0.6705882352941176, 0.094117647058823528, 0.32156862745098042, 1.0)]
+selected-color=(true, 0.28627450980392155, 0.6588235294117647, 0.20784313725490197, 1.0)
+
+[org/gtk/settings/file-chooser]
+date-format='regular'
+location-mode='path-bar'
+show-hidden=false
+show-size-column=true
+show-type-column=true
+sidebar-width=269
+sort-column='modified'
+sort-directories-first=false
+sort-order='descending'
+type-format='category'
+window-position=(26, 23)
+window-size=(1231, 721)
+
+# Alt+F4 is very cumbersome
+gsettings set org.gnome.desktop.wm.keybindings close "['<Super>w']"
