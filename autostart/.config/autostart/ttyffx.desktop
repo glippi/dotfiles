@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=ttyffx
+GenericName=Opens kitty and firefox
+Comment=Opens kitty and firefox
+Exec=/home/urbest/.local/bin/startup.sh
+Terminal=false
+Type=Application
+X-GNOME-Autostart-enabled=true
