@@ -55,6 +55,13 @@ set -x PATH $ANDROID_HOME/build-tools $PATH
 set -x PATH $ANDROID_HOME/cmdline-tools $PATH
 set -x PATH $ANDROID_HOME/platform-tools $PATH
 
+set -x JAVA_HOME (dirname (dirname (readlink -f (which java))))
+
 #if status is-interactive
 #    eval (zellij setup --generate-auto-start fish | string collect)
 #end
+
+function ups
+    set current_branch (git rev-parse --abbrev-ref HEAD)
+    git branch --set-upstream-to=origin/$current_branch
+end
